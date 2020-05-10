@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@home');
+Route::get('/generate_cv', 'PagesController@generate_cv');
+Route::get('/cv_view', 'PagesController@cv_view');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
