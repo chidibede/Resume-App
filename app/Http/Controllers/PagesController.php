@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class PagesController extends Controller
 {
@@ -16,6 +17,7 @@ class PagesController extends Controller
     }
 
     public function cv_view(){
-        return view('pages.cv_view');
+        $user = auth()->user();
+        return view('pages.cv_view')->with('user', $user);
     }
 }

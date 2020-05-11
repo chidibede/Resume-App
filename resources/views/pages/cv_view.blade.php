@@ -4,6 +4,8 @@
 
 <body class="w3-light-grey">
 
+  @if ($user)
+      
 <!-- Page Container -->
 <div class="w3-content w3-margin-top" style="max-width:1400px;">
 
@@ -13,11 +15,12 @@
     <!-- Left Column -->
     <div class="w3-third">
     
+      
       <div class="w3-white w3-text-grey w3-card-4">
         <div class="w3-display-container">
           <img src="/img/default.png"  height="300" style="width:100%" alt="Avatar">
           <div class="w3-display-bottomleft w3-container w3-text-black">
-            <h2 style="background: #ddd;">Clinton Ezeronye</h2>
+            <h2 style="background: #ddd;">{{$user->name}}</h2>
           </div>
         </div>
         <div class="w3-container">
@@ -126,6 +129,8 @@
   <!-- End Page Container -->
 </div>
 
+<h1>Unauthorized to view</h1>
+
 <footer class="w3-container w3-teal w3-center w3-margin-top">
   <p>Find me on social media.</p>
   <i class="fa fa-facebook-official w3-hover-opacity"></i>
@@ -134,9 +139,12 @@
   <i class="fa fa-pinterest-p w3-hover-opacity"></i>
   <i class="fa fa-twitter w3-hover-opacity"></i>
   <i class="fa fa-linkedin w3-hover-opacity"></i>
-  <p>Powered by <a href="#" target="_blank">KlintMedia</a></p>
+  <p>Powered by <a href="#" target="_blank">Klintgit Media</a></p>
 </footer>
+@else
+<h1>Unauthorized to view page</h1>
 
+@endif
 </body>
 
 @endsection
