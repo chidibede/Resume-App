@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class ProfileController extends Controller
 {
@@ -21,8 +22,25 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+
+    public function index(){
+        $user = auth()->user();
+        return view('profile')->with('user', $user);
+    }
+
+    public function update(User $user, Request $request)
     {
-        return view('profile');
+      
+        // store the form values in a database
+        $user = auth()->user();
+        $user->name = $request->input('name');
+        $user->username = $request->input('username');
+        $user->email = $request->input('email');
+    
+
+        $user->save();
+        return redirect('/profile')->with('success', 'User Profile updated successfully');
+        
+        
     }
 }

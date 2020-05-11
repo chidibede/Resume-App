@@ -14,7 +14,43 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <div class="content-section">
+                        <div class="p-2">
+                            {!! Form::open(['action' => ['ProfileController@update', $user], 'method' => 'post', 'enctype'=>'multipart/form-data']) !!}
+                            <div class="form-group">
+                                {{ Form::label('name', 'Name') }}
+                                {{ Form::text('name', $user->name, [ 'class' =>  'form-control']) }}
+                            </div>
+                
+                
+                            
+                            <div class="form-group">
+                                {{ Form::label('username', 'Username') }}
+                                {{ Form::text('username', $user->username, [ 'class' =>  'form-control', ]) }}
+                                
+                            </div>
+
+                            <div class="form-group">
+                                {{ Form::label('email', 'Email') }}
+                                {{ Form::text('email', $user->email, [ 'class' =>  'form-control', ]) }}
+                                
+                            </div>
+
+                            
+                
+                            {{-- <div class="form-group">
+                                {{ Form::file('cover_image') }}
+                            </div> --}}
+                
+                            <div class="form-group">
+                                {{ Form::hidden('_method', 'PUT')}}
+                                {{ Form::submit('Update', ['class' => 'btn btn-primary pr-4 pl-4']) }}
+                            </div>
+                
+                        {!! Form::close() !!}
+                        </div>
+                        
+                      </div>
                 </div>
             </div>
         </div>

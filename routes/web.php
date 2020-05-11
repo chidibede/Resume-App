@@ -21,3 +21,4 @@ Route::get('/cv_view', 'PagesController@cv_view');
 Auth::routes();
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::put('/profile/update', 'ProfileController@update');

@@ -27,7 +27,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white sticky shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ 'Resume App' }}
@@ -88,6 +88,12 @@
         </nav>
 
         <main class="py-4 container">
+            <div class="row justify-content-center" >
+                <div class="col-md-8 mt-4">
+                    @include('inc.messages')
+                </div>
+            </div> 
+            
             @yield('content')
         </main>
     </div>
