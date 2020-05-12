@@ -25,7 +25,12 @@ class ProfileController extends Controller
 
     public function index(){
         $user = auth()->user();
-        return view('profile')->with('user', $user);
+        return view('users.profile')->with('user', $user);
+    }
+
+    public function edit(){
+        $user = auth()->user();
+        return view('users.edit_profile')->with('user', $user);
     }
 
     public function update(User $user, Request $request)
@@ -39,7 +44,7 @@ class ProfileController extends Controller
     
 
         $user->save();
-        return redirect('/profile')->with('success', 'User Profile updated successfully');
+        return redirect('/profile/edit')->with('success', 'User Profile updated successfully');
         
         
     }

@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            
             <div class="card">
                 <div class="card-header">Profile</div>
 
@@ -43,12 +44,21 @@
                             </div> --}}
                 
                             <div class="form-group">
-                                {{ Form::hidden('_method', 'PUT')}}
-                                {{ Form::submit('Update', ['class' => 'btn btn-primary pr-4 pl-4']) }}
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        {{ Form::hidden('_method', 'PUT')}}
+                                        {{ Form::submit('Update', ['class' => 'btn btn-success pr-4 pl-4']) }}
+                                    </div>
+                                    <div class="col-md-2 pull-right">
+                                        <a href="/profile" class="btn btn-secondary ml-auto pl-4 pr-4 ">Profile</a>
+                                    </div>
+                                </div>
+                               
                             </div>
                 
                         {!! Form::close() !!}
                         </div>
+                        
                         
                       </div>
                 </div>
