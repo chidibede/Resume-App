@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnToUsersTable extends Migration
+class AddLocationToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,9 @@ class AddColumnToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-<<<<<<< HEAD
-            //
-            $table->string('username')->after('email')->default("");
-=======
-            // Add username column
-            $table->string('username')->after('email')->nullable();
->>>>>>> df8ed90d1bdaa9c31eca3be0474a4a5d5954b562
+            // Add Location column to users table
+            $table->string('location')->after('profession')->nullable();
+
         });
     }
 
@@ -33,7 +29,7 @@ class AddColumnToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             // Drop column if requested
-            $table->dropColumn('username');
+            $table->dropColumn('location');
         });
     }
 }

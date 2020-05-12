@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Work;
 
 class PagesController extends Controller
 {
@@ -16,6 +18,15 @@ class PagesController extends Controller
     }
 
     public function cv_view(){
-        return view('pages.cv_view');
+        $user = auth()->user();
+        $works = User::find($user->id)->works;
+        $educations = User::find($user->id)->educations;
+        $data = [
+            'works'=> $works,
+            'educations' => $educations,
+            'user'=> $user
+        ];
+        
+        return view('pages.cv_view', $data);
     }
 }

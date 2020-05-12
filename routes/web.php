@@ -20,4 +20,6 @@ Route::get('/cv_view', 'PagesController@cv_view');
 
 Auth::routes();
 
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::get('/profile/edit', 'ProfileController@edit');
+Route::put('/profile/update', 'ProfileController@update');

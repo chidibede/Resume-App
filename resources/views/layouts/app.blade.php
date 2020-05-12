@@ -69,7 +69,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/dashboard">Dashboard</a>
+                                    <a class="dropdown-item" href="/profile">Profile</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -87,7 +87,13 @@
             </div>
         </nav>
 
-        <div class="py-4 container-fluid">
+        <main class="py-4 container">
+            <div class="row justify-content-center" >
+                <div class="col-md-8 mt-4">
+                    @include('inc.messages')
+                </div>
+            </div> 
+            
             @yield('content')
         </div>
     </div>
