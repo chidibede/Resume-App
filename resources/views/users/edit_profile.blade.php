@@ -16,7 +16,7 @@
                     @endif
 
                     <div class="content-section">
-                        <div class="p-2">
+                        <div class="pl-2 pr-2">
                             {!! Form::open(['action' => ['ProfileController@update', $user], 'method' => 'post', 'enctype'=>'multipart/form-data']) !!}
                             <div class="form-group">
                                 {{ Form::label('name', 'Name') }}
@@ -34,6 +34,24 @@
                             <div class="form-group">
                                 {{ Form::label('email', 'Email') }}
                                 {{ Form::text('email', $user->email, [ 'class' =>  'form-control', ]) }}
+                                
+                            </div>
+
+                            <div class="form-group">
+                                {{ Form::label('profession', 'Profession') }}
+                                {{ Form::text('profession', $user->profession, [ 'class' =>  'form-control', ]) }}
+                                
+                            </div>
+
+                            <div class="form-group">
+                                {{ Form::label('location', 'Location') }}
+                                {{ Form::text('location', $user->location, [ 'class' =>  'form-control', ]) }}
+                                
+                            </div>
+
+                            <div class="form-group">
+                                {{ Form::label('phone_number', 'Phone Number') }}
+                                {{ Form::text('phone_number', $user->phone_number, [ 'class' =>  'form-control', ]) }}
                                 
                             </div>
 
