@@ -118,7 +118,6 @@
   <!-- End Page Container -->
 </div>
 
-<h1>Unauthorized to view</h1>
 
 <footer class="w3-container w3-teal w3-center w3-margin-top">
   <p>Find me on social media.</p>
