@@ -2,10 +2,13 @@
 
 @section('content')
 
+<<<<<<< HEAD
+=======
 <body class="w3-light-grey">
 
   @if ($user)
       
+>>>>>>> df8ed90d1bdaa9c31eca3be0474a4a5d5954b562
 <!-- Page Container -->
 <div class="w3-content w3-margin-top" style="max-width:1400px;">
 
@@ -118,6 +121,8 @@
   <!-- End Page Container -->
 </div>
 
+<<<<<<< HEAD
+=======
 
 <footer class="w3-container w3-teal w3-center w3-margin-top">
   <p>Find me on social media.</p>
@@ -135,4 +140,5 @@
 @endif
 </body>
 
+>>>>>>> df8ed90d1bdaa9c31eca3be0474a4a5d5954b562
 @endsection
