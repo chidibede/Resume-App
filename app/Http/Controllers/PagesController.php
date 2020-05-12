@@ -20,8 +20,10 @@ class PagesController extends Controller
     public function cv_view(){
         $user = auth()->user();
         $works = User::find($user->id)->works;
+        $educations = User::find($user->id)->educations;
         $data = [
             'works'=> $works,
+            'educations' => $educations,
             'user'=> $user
         ];
         

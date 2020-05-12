@@ -90,23 +90,14 @@
 
       <div class="w3-container w3-card w3-white">
         <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+        @foreach ($educations as $education)
         <div class="w3-container">
-          <h5 class="w3-opacity"><b>Philips HealthCare Academy.</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>February 2020</h6>
-          <p>DXR Radiography Essentials </p>
+          <h5 class="w3-opacity"><b>{{ $education->school}}</b></h5>
+        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $education->start_date }} - {{$education->end_date}}</h6>
+          <p>{{ $education->degree}}</p>
           <hr>
         </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>University of Nigeria, Nsukka.</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2011 - 2015</h6>
-          <p>Computer Science : Bachelor Degree</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Abia State Senior School</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2006 - 2009</h6>
-          <p>Senior Secondary Certification</p><br>
-        </div>
+        @endforeach
       </div>
       <div class="w3-container">
           <p>Find me on social media.</p>
