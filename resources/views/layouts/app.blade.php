@@ -17,8 +17,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/styles.css')}}">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -87,7 +87,7 @@
             </div>
         </nav>
 
-        <main class="py-4 container">
+        <main class="py-4">
             <div class="row justify-content-center" >
                 <div class="col-md-8 mt-4">
                     @include('inc.messages')
