@@ -29,9 +29,9 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <a href="/profile/edit" class="btn btn-primary btn-lg mr-4">Edit Profile</a>
-                            <a href="/generate_cv" class="btn btn-success btn-lg mr-4">Generate CV </a>
-                            <a href="/cv_view" class="btn btn-secondary btn-lg">View CV </a>
+                            <span><a href="/profile/edit" class="btn btn-primary m-1">Edit Profile</a></span>
+                            <span><a href="/generate_cv" class="btn btn-success m-1">Generate CV </a></span>
+                            <span><a href="/cv_view" class="btn btn-secondary m-1">View CV </a></span>     
                         </div>
                         
                       </div>

@@ -44,15 +44,9 @@
                             </div> --}}
                 
                             <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-10">
-                                        {{ Form::hidden('_method', 'PUT')}}
-                                        {{ Form::submit('Update', ['class' => 'btn btn-success pr-4 pl-4']) }}
-                                    </div>
-                                    <div class="col-md-2 pull-right">
-                                        <a href="/profile" class="btn btn-secondary ml-auto pl-4 pr-4 ">Profile</a>
-                                    </div>
-                                </div>
+                                {{ Form::hidden('_method', 'PUT')}}
+                                {{ Form::submit('Update', ['class' => 'btn btn-success pr-4 pl-4']) }}
+                                <span class="pull-right"><a href="/profile" class="btn btn-secondary pl-4 pr-4">Profile</a></span>
                                
                             </div>
                 
