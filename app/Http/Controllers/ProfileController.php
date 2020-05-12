@@ -29,12 +29,23 @@ class ProfileController extends Controller
     }
 
     public function edit(){
+
+        // Function that controls the edit profile view
         $user = auth()->user();
         return view('users.edit_profile')->with('user', $user);
     }
 
     public function update(User $user, Request $request)
     {
+
+        // Function that controls the update user request
+
+
+        // validate the form
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+        ]);
       
         // store the form values in a database
         $user = auth()->user();
@@ -45,7 +56,7 @@ class ProfileController extends Controller
         $user->location = $request->input('location');
         $user->phone_number = $request->input('phone_number');
     
-
+        // Save the Updated User Profile
         $user->save();
         return redirect('/profile/edit')->with('success', 'User Profile updated successfully');
         

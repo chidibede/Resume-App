@@ -24,10 +24,10 @@
           </div>
         </div>
         <div class="w3-container">
-          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>{{$user->profession}}</p>
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>{{$user->location}}</p>
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>{{$user->profession ?? 'N/A'}}</p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>{{$user->location ?? 'N/A'}}</p>
           <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>{{$user->email}}</p>
-          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>{{$user->phone_number}}</p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>{{$user->phone_number ?? 'N/A'}}</p>
           <hr>
 
           <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
@@ -73,21 +73,19 @@
 
     <!-- Right Column -->
     <div class="w3-twothird">
-    
+      
       <div class="w3-container w3-card w3-white w3-margin-bottom">
         <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+        @foreach ($works as $work)
         <div class="w3-container">
-          <h5 class="w3-opacity"><b>Field Service Engineer / Technologia Hospitalaria y Laboratorial (THL)</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>May 2019 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
-          <p>Installation along with preventive and corrective maintenace of Philips medical systems</p>
+        <h5 class="w3-opacity"><b>{{ $work->title}}/{{ $work->firm}}/{{ $work->location}}</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $work->start_date}} - <span class="w3-tag w3-teal w3-round">{{ $work->end_date}}</span></h6>
+          <p>{{ $work->functions}}</p>
           <hr>
         </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>IT Administrator and Instructor / Oris Education Center, American Corner</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>October 2015 - May 2019</h6>
-          <p>Operation officer for all technology related issues</p>
-          <hr>
-        </div>
+           
+      @endforeach
+
       </div>
 
       <div class="w3-container w3-card w3-white">
