@@ -35,40 +35,27 @@
                 {{-- End of Users Info Table --}}
 
 
+                {{-- Skills section --}}
           <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
-          <p>HTML/CSS/Javascript</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
-          </div>
-          <p>Php</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
-              <div class="w3-center w3-text-white">80%</div>
+          @foreach($skills as $skill)
+            <p>HTML/CSS/Javascript</p>
+            <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal pl-2" style="width:{{ $skill->level}}%">{{ $skill->level}}</div>
             </div>
-          </div>
-          <p>Laravel</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
-          </div>
-          <p>Flutter</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50%</div>
-          </div>
-          <br>
+            <p>{{ $skill->skill_name}}</p>
+            <br>
+          @endforeach
+
 
           <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
-          <p>English</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
-          </div>
-          <p>Spanish</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:55%"></div>
-          </div>
-          <p>Portuguese</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:25%"></div>
-          </div>
+          
+          @foreach($languages as $language)
+            <p>{{ $language->language_name}}</p>
+            <div class="w3-light-grey w3-round-xlarge">
+            <div class="w3-round-xlarge w3-teal pl-2" style="height:24px;width:{{ $language->level}}%">{{ $language->level}}</div>
+            </div>
+          @endforeach
+
           <br>
         </div>
       </div><br>
@@ -120,19 +107,53 @@
         </div>
         @endforeach
       </div>
-      <div class="w3-container">
-          <p>Find me on social media.</p>
-            <i class="fa fa-facebook-official w3-hover-opacity"></i> 
-            <i class="fa fa-instagram w3-hover-opacity"></i> 
-            <i class="fa fa-snapchat w3-hover-opacity"></i> 
-            <i class="fa fa-pinterest-p w3-hover-opacity"></i> 
-            <i class="fa fa-twitter w3-hover-opacity"></i> 
-            <i class="fa fa-linkedin w3-hover-opacity"></i> 
-      </div>
-
     <!-- End Right Column -->
     </div>
+
     
+    <div class="w3-container w3-card w3-white mt-4">
+      <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Volunteer Experience</h2>
+      
+      {{-- Previous Job/Work Table/Info --}}
+      @foreach ($volunteers as $volunteer)
+      <div class="w3-container">
+        <h5 class="w3-opacity"><b>{{ $volunteer->title}}/{{ $volunteer->firm}}/{{ $volunteer->location}}</b></h5>
+        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $volunteer->start_date}} - <span class="w3-tag w3-teal w3-round">{{ $volunteer->end_date}}</span></h6>
+        <p>{{ $volunteer->job_description}}</p>
+        <hr>
+      </div>    
+    @endforeach
+    {{-- End of Job/Work Table/Info --}}
+    
+  <!-- End Right Column -->
+  </div>
+    
+
+  <div class="w3-container w3-card w3-white mt-4">
+    <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Projects</h2>
+    
+    <div class="w3-container">
+    @foreach ($projects as $project)
+    <div class="w3-container">
+      <h5 class="w3-opacity"><b>{{ $project->name}}</b></h5>
+      <h6 class="w3-text-teal">{{ $project->tools }}</h6>
+      <h6 class="w3-text-teal"><a href="{{ $project->link }}">{{ $project->link }}</a></h6>
+      <p>{{ $project->description}}</p>
+      <hr>
+    </div>
+    @endforeach
+  </div>
+  <div class="w3-container">
+      <p>Find me on social media.</p>
+        <i class="fa fa-facebook-official w3-hover-opacity"></i> 
+        <i class="fa fa-instagram w3-hover-opacity"></i> 
+        <i class="fa fa-snapchat w3-hover-opacity"></i> 
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i> 
+        <i class="fa fa-twitter w3-hover-opacity"></i> 
+        <i class="fa fa-linkedin w3-hover-opacity"></i> 
+  </div>
+<!-- End Right Column -->
+</div>
   <!-- End Grid -->
   </div>
   

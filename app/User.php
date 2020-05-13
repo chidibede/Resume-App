@@ -57,6 +57,10 @@ class User extends Authenticatable
         return $this->hasMany(Volunteer::class);
     }
 
+    public function languages() {
+        return $this->hasMany(Language::class);
+    }
+
     public function currentjobs() {
         return $this->hasMany(Currentjob::class);
     }

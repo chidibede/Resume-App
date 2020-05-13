@@ -16,16 +16,16 @@ class CreateCurrentjobsTable extends Migration
         Schema::create('currentjobs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('name');
+            $table->string('title');
             $table->string('firm');
             $table->string('location');
             $table->string('start_date');
             $table->string('end_date')->default('Present');
             $table->text('job_description');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
 
             $table->index('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
