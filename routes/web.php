@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PagesController@home');
 Route::get('/generate_cv', 'PagesController@generate_cv');
-Route::get('/cv_view', 'PagesController@cv_view');
+Route::get('/cv_view/{user}', 'PagesController@cv_view');
 
 
 Auth::routes();

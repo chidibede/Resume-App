@@ -27,7 +27,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ 'Resume App' }}
@@ -61,7 +61,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ '/cv_view' }}">View CV</a>
+                                <a class="nav-link" href="/cv_view/{{Auth::user()->username}}">View CV</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

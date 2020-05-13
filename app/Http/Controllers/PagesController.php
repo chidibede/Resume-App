@@ -17,13 +17,26 @@ class PagesController extends Controller
         return view('pages.generate_cv');
     }
 
-    public function cv_view(){
-        $user = auth()->user();
-        $works = User::find($user->id)->works;
-        $educations = User::find($user->id)->educations;
+    public function cv_view($username){
+        // Querying the database
+        $user = User::where('username', '=', $username)->firstOrFail();
+        $works = $user->works;
+        $educations = $user->educations;
+        $skills = $user->skills;
+        $projects = $user->projects;
+        $languages = $user->languages;
+        $volunteers = $user->volunteers;
+        $currentjobs = $user->currentjobs;
+   
+        
         $data = [
             'works'=> $works,
             'educations' => $educations,
+            'skills' => $skills,
+            'projects' => $projects,
+            'languages' => $languages,
+            'volunteers' => $volunteers,
+            'currentjobs' => $currentjobs,
             'user'=> $user
         ];
         

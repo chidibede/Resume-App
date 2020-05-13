@@ -21,10 +21,11 @@ class CreateWorkTable extends Migration
             $table->string('location');
             $table->string('start_date');
             $table->string('end_date');
-            $table->longText('functions');
+            $table->longText('job_description');
             $table->timestamps();
 
             $table->index('user_id');
+
         });
     }
 

@@ -15,7 +15,9 @@
     <!-- Left Column -->
     <div class="w3-third">
     
-      
+    
+              {{-- Users Info Container --}}
+      {{-- Getting data from users table --}} 
       <div class="w3-white w3-text-grey w3-card-4">
         <div class="w3-display-container">
           <img src="/img/default.png"  height="300" style="width:100%" alt="Avatar">
@@ -29,6 +31,9 @@
           <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>{{$user->email}}</p>
           <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>{{$user->phone_number ?? 'N/A'}}</p>
           <hr>
+          {{-- End of data calls from users table --}}
+                {{-- End of Users Info Table --}}
+
 
           <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
           <p>HTML/CSS/Javascript</p>
@@ -76,20 +81,36 @@
       
       <div class="w3-container w3-card w3-white w3-margin-bottom">
         <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
-        @foreach ($works as $work)
-        <div class="w3-container">
-        <h5 class="w3-opacity"><b>{{ $work->title}}/{{ $work->firm}}/{{ $work->location}}</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $work->start_date}} - <span class="w3-tag w3-teal w3-round">{{ $work->end_date}}</span></h6>
-          <p>{{ $work->functions}}</p>
-          <hr>
-        </div>
-           
-      @endforeach
+        
+         
+        {{-- Current Job Table/Info --}}
+        @foreach($currentjobs as $currentjob)
+          <div class="w3-container">
+            <h5 class="w3-opacity"><b>{{ $currentjob->name}}/{{ $currentjob->firm}}/{{ $currentjob->location}}</b></h5>
+            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $currentjob->start_date}} - <span class="w3-tag w3-teal w3-round">{{ $currentjob->end_date}}</span></h6>
+            <p>{{ $currentjob->job_description}}</p>
+            <hr>
+          </div>
+          @endforeach  
+          {{-- End of Current Job  --}}
 
+
+        {{-- Previous Job/Work Table/Info --}}
+        @foreach ($works as $work)
+          <div class="w3-container">
+            <h5 class="w3-opacity"><b>{{ $work->title}}/{{ $work->firm}}/{{ $work->location}}</b></h5>
+            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $work->start_date}} - <span class="w3-tag w3-teal w3-round">{{ $work->end_date}}</span></h6>
+            <p>{{ $work->job_description}}</p>
+            <hr>
+          </div>    
+        @endforeach
+        {{-- End of Job/Work Table/Info --}}
       </div>
 
       <div class="w3-container w3-card w3-white">
         <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+        
+        <div class="w3-container">
         @foreach ($educations as $education)
         <div class="w3-container">
           <h5 class="w3-opacity"><b>{{ $education->school}}</b></h5>
