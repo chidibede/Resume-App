@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-// Education Model to record past Education History
-class Education extends Model
+// Skill Model to record user's skills
+class Skill extends Model
 {
     // Relational Mapping One to many Model
-    // The User to Education Model is one to many
+    // The User to Skill Model is one to many
     public function user() {
         return $this->belongsTo(User::class);
     }
