@@ -41,7 +41,7 @@ div {
 }
 
 .header{
-  padding-top: 40vh;
+  padding-top: 35vh;
 }
 p {
   font-size:14px;
@@ -54,7 +54,7 @@ p {
   <!-- Avatar image in top left corner -->
   <a href="{{ url('/') }}" class="w3-bar-item w3-button w3-padding-large w3-hover-pale-green">
     <i class="fa fa-home w3-text-teal w3-xxlarge"></i>
-    <p>{{ 'Resume App' }}</p>
+    <p>{{ 'Home' }}</p>
   </a>
   <!-- Authentication Links -->
 @guest
@@ -94,37 +94,37 @@ p {
   <nav class="w3-bar w3-center w3-small">
   <!-- Avatar image in top left corner -->
   <a href="{{ url('/') }}" class="w3-bar-item w3-button w3-padding-large w3-hover-pale-green" style="width:25% !important">
-    <i class="fa fa-home w3-text-teal w3-xxlarge"></i>
-    <p>{{ 'Resume App' }}</p>
+    <i class="fa fa-home w3-text-teal w3-xlarge"></i>
+    <p>{{ 'Home' }}</p>
   </a>
 
 
   <!-- Authentication Links -->
 @guest
-    <a href="{{ route('login') }}" class="w3-bar-item w3-button w3-padding-large w3-hover-pale-green" style="width:25% !important">
-      <i class="fa fa-sign-in w3-text-teal w3-xxlarge"></i>
+    <a href="{{ route('login') }}" class="w3-bar-item w3-button w3-padding-large w3-hover-pale-green" style="width:36% !important">
+      <i class="fa fa-sign-in w3-text-teal w3-xlarge"></i>
       <p>{{ __('Login') }}</p>
     </a>
 
        @if (Route::has('register'))
-          <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-pale-green" style="width:25% !important">
-            <i class="fa fa-user-plus w3-text-teal w3-xxlarge"></i>
+          <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-pale-green" style="width:36% !important">
+            <i class="fa fa-user-plus w3-text-teal w3-xlarge"></i>
             <p>REGISTER</p>
           </a>
        @endif
   @else
         <a href="{{ '/generate_cv' }}" class="w3-bar-item w3-button w3-padding-large w3-hover-pale-green" style="width:25% !important">
-          <i class="fa fa-sign-in w3-text-teal w3-xxlarge"></i>
+          <i class="fa fa-sign-in w3-text-teal w3-xlarge"></i>
           <p>CREATE CV</p>
         </a>
 
         <a href="/cv_view/{{Auth::user()->username}}" class="w3-bar-item w3-button w3-padding-large w3-hover-pale-green" style="width:25% !important">
-          <i class="fa fa-user-plus w3-text-teal w3-xxlarge"></i>
+          <i class="fa fa-user-plus w3-text-teal w3-xlarge"></i>
           <p>VIEW CV</p>
         </a>
 
         <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="w3-dropdown-hover w3-button w3-padding-large w3-hover-pale-green" style="width:25% !important">
-          <i class="fa fa-user w3-text-teal w3-xxlarge"></i>
+          <i class="fa fa-user w3-text-teal w3-xlarge"></i>
           <p>{{ __('Logout') }}</p>
         </a>
          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -140,7 +140,7 @@ p {
   <span>accessible on the web</span>
 </div>
  <div> @yield('content')</div>
- <p><a href="#about" class="w3-btn w3-ripple w3-teal w3-padding-large w3-large w3-margin-top w3-hover-opacity">Create Web CV </a></p>
+ <p><a href="{{ '/generate_cv' }}" class="w3-btn w3-ripple w3-teal w3-padding-large w3-large w3-hover-opacity">Create Web CV </a></p>
 </body>
 </html>
 

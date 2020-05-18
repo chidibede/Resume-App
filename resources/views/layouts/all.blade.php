@@ -35,8 +35,8 @@ h2 {font-size:24px;font-weight:300;}
   text-align: left;
 }
 p {
-  font-size:12px;
-  color:#999;
+  font-size:14px;
+  color:#565656;
 }
 @media screen and (max-width: 600px) {
   .yield{
@@ -100,13 +100,13 @@ p {
 
   <!-- Authentication Links -->
 @guest
-    <a href="{{ route('login') }}" class="w3-bar-item w3-button w3-padding-large w3-hover-pale-green" style="width:25% !important">
+    <a href="{{ route('login') }}" class="w3-bar-item w3-button w3-padding-large w3-hover-pale-green" style="width:36% !important">
       <i class="fa fa-sign-in w3-text-teal w3-xlarge"></i>
       <p>{{ __('Login') }}</p>
     </a>
 
        @if (Route::has('register'))
-          <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-pale-green" style="width:33% !important">
+          <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-pale-green" style="width:36% !important">
             <i class="fa fa-user-plus w3-text-teal w3-xlarge"></i>
             <p>REGISTER</p>
           </a>
