@@ -18,6 +18,7 @@ Route::get('/generate_cv', 'PagesController@generate_cv');
 Route::get('/cv_view/{user}', 'PagesController@cv_view');
 
 
+
 Auth::routes();
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
