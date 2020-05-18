@@ -1,28 +1,27 @@
-@extends('layouts.app')
-
+@extends('layouts.all')
 @section('content')
-
 <body class="w3-light-grey">
+
 
   @if ($user)
       
 <!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
+<div class="w3-content w3-margin-bottom" style="max-width:1400px;">
 
   <!-- The Grid -->
-  <div class="w3-row-padding">
+  <div class="w3-row-padding ">
   
     <!-- Left Column -->
-    <div class="w3-third">
+    <div class="w3-third w3-margin-top ">
     
     
               {{-- Users Info Container --}}
       {{-- Getting data from users table --}} 
       <div class="w3-white w3-text-grey w3-card-4">
         <div class="w3-display-container">
-          <img src="/img/default.png"  height="300" style="width:100%" alt="Avatar">
+          <img src="/img/default.png"  height="400" style="width:100%" alt="Avatar">
           <div class="w3-display-bottomleft w3-container w3-text-black">
-            <h2 style="background: #ddd;">{{$user->name}}</h2>
+            <h3 style="background: #fafafa;">{{$user->name}}</h3>
           </div>
         </div>
         <div class="w3-container">
@@ -58,13 +57,13 @@
 
           <br>
         </div>
-      </div><br>
+      </div>
 
     <!-- End Left Column -->
     </div>
 
     <!-- Right Column -->
-    <div class="w3-twothird">
+    <div class="w3-twothird w3-margin-top ">
       
       <div class="w3-container w3-card w3-white w3-margin-bottom">
         <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
@@ -94,7 +93,7 @@
         {{-- End of Job/Work Table/Info --}}
       </div>
 
-      <div class="w3-container w3-card w3-white">
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
         <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
         
         <div class="w3-container">
@@ -111,8 +110,8 @@
     </div>
 
     
-    <div class="w3-container w3-card w3-white mt-4">
-      <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Volunteer Experience</h2>
+    <div class="w3-container w3-card w3-white mt-4 w3-margin-bottom">
+      <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-handshake-o fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Volunteer Experience</h2>
       
       {{-- Previous Job/Work Table/Info --}}
       @foreach ($volunteers as $volunteer)
@@ -130,7 +129,7 @@
     
 
   <div class="w3-container w3-card w3-white mt-4">
-    <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Projects</h2>
+    <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-cogs fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Projects</h2>
     
     <div class="w3-container">
     @foreach ($projects as $project)
@@ -143,7 +142,7 @@
     </div>
     @endforeach
   </div>
-  <div class="w3-container">
+  <div class="w3-container w3-margin-bottom">
       <p>Find me on social media.</p>
         <i class="fa fa-facebook-official w3-hover-opacity"></i> 
         <i class="fa fa-instagram w3-hover-opacity"></i> 
@@ -158,6 +157,7 @@
   </div>
   
   <!-- End Page Container -->
+</div>
 </div>
 
 @else
