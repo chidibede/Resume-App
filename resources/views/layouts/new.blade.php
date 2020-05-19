@@ -126,9 +126,9 @@ p {
     </a>
 
        @if (Route::has('register'))
-          <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-light-gray" style="width:36% !important">
+          <a href="{{ route('register') }}" class="w3-bar-item w3-button w3-padding-large w3-hover-light-gray" style="width:36% !important">
             <i class="fa fa-user-plus w3-text-blue w3-xlarge"></i>
-            <p>REGISTER</p>
+            <p>{{ __('Register') }}</p>
           </a>
        @endif
   @else

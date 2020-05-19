@@ -19,7 +19,8 @@
 .w3-sidebar {width: 120px;border-right: 1px solid #f1f1f1}
 #myNavbar{border-bottom: 1px solid #f1f1f1}
 body {
-  background:linear-gradient(-45deg,    #ffffff 25%, #f6f6f6 40%, #fff 55%);
+
+  background:linear-gradient(-45deg, #f5f7f8 25%, #f6f6f6 40%, #fff 55%);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   color:#555;
@@ -114,9 +115,9 @@ p {
     </a>
 
        @if (Route::has('register'))
-          <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-light-gray" style="width:36% !important">
+          <a href="{{ route('register') }}" class="w3-bar-item w3-button w3-padding-large w3-hover-light-gray" style="width:36% !important">
             <i class="fa fa-user-plus w3-text-blue w3-xlarge"></i>
-            <p>REGISTER</p>
+            <p>{{ __('Register') }}</p>
           </a>
        @endif
   @else
