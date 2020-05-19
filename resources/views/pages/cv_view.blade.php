@@ -25,17 +25,17 @@
           </div>
         </div>
         <div class="w3-container">
-          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>{{$user->profession ?? 'N/A'}}</p>
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>{{$user->location ?? 'N/A'}}</p>
-          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>{{$user->email}}</p>
-          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>{{$user->phone_number ?? 'N/A'}}</p>
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-blue"></i>{{$user->profession ?? 'N/A'}}</p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-blue"></i>{{$user->location ?? 'N/A'}}</p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-blue"></i>{{$user->email}}</p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-blue"></i>{{$user->phone_number ?? 'N/A'}}</p>
           <hr>
           {{-- End of data calls from users table --}}
                 {{-- End of Users Info Table --}}
 
 
                 {{-- Skills section --}}
-          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-blue"></i>Skills</b></p>
           @foreach($skills as $skill)
             <p>HTML/CSS/Javascript</p>
             <div class="w3-light-grey w3-round-xlarge w3-small">
@@ -46,7 +46,7 @@
           @endforeach
 
 
-          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
+          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-blue"></i>Languages</b></p>
           
           @foreach($languages as $language)
             <p>{{ $language->language_name}}</p>
@@ -66,14 +66,14 @@
     <div class="w3-twothird w3-margin-top ">
       
       <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>Work Experience</h2>
         
          
         {{-- Current Job Table/Info --}}
         @foreach($currentjobs as $currentjob)
           <div class="w3-container">
             <h5 class="w3-opacity"><b>{{ $currentjob->name}}/{{ $currentjob->firm}}/{{ $currentjob->location}}</b></h5>
-            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $currentjob->start_date}} - <span class="w3-tag w3-teal w3-round">{{ $currentjob->end_date}}</span></h6>
+            <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $currentjob->start_date}} - <span class="w3-tag w3-teal w3-round">{{ $currentjob->end_date}}</span></h6>
             <p>{{ $currentjob->job_description}}</p>
             <hr>
           </div>
@@ -85,7 +85,7 @@
         @foreach ($works as $work)
           <div class="w3-container">
             <h5 class="w3-opacity"><b>{{ $work->title}}/{{ $work->firm}}/{{ $work->location}}</b></h5>
-            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $work->start_date}} - <span class="w3-tag w3-teal w3-round">{{ $work->end_date}}</span></h6>
+            <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $work->start_date}} - <span class="w3-tag w3-teal w3-round">{{ $work->end_date}}</span></h6>
             <p>{{ $work->job_description}}</p>
             <hr>
           </div>    
@@ -94,13 +94,13 @@
       </div>
 
       <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>Education</h2>
         
         <div class="w3-container">
         @foreach ($educations as $education)
         <div class="w3-container">
           <h5 class="w3-opacity"><b>{{ $education->school}}</b></h5>
-        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $education->start_date }} - {{$education->end_date}}</h6>
+        <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $education->start_date }} - {{$education->end_date}}</h6>
           <p>{{ $education->degree}}</p>
           <hr>
         </div>
@@ -111,13 +111,13 @@
 
     
     <div class="w3-container w3-card w3-white mt-4 w3-margin-bottom">
-      <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-handshake-o fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Volunteer Experience</h2>
+      <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-handshake-o fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>Volunteer Experience</h2>
       
       {{-- Previous Job/Work Table/Info --}}
       @foreach ($volunteers as $volunteer)
       <div class="w3-container">
         <h5 class="w3-opacity"><b>{{ $volunteer->title}}/{{ $volunteer->firm}}/{{ $volunteer->location}}</b></h5>
-        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $volunteer->start_date}} - <span class="w3-tag w3-teal w3-round">{{ $volunteer->end_date}}</span></h6>
+        <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $volunteer->start_date}} - <span class="w3-tag w3-teal w3-round">{{ $volunteer->end_date}}</span></h6>
         <p>{{ $volunteer->job_description}}</p>
         <hr>
       </div>    
@@ -129,14 +129,14 @@
     
 
   <div class="w3-container w3-card w3-white mt-4">
-    <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-cogs fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Projects</h2>
+    <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-cogs fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>Projects</h2>
     
     <div class="w3-container">
     @foreach ($projects as $project)
     <div class="w3-container">
       <h5 class="w3-opacity"><b>{{ $project->name}}</b></h5>
-      <h6 class="w3-text-teal">{{ $project->tools }}</h6>
-      <h6 class="w3-text-teal"><a href="{{ $project->link }}">{{ $project->link }}</a></h6>
+      <h6 class="w3-text-blue">{{ $project->tools }}</h6>
+      <h6 class="w3-text-blue"><a href="{{ $project->link }}">{{ $project->link }}</a></h6>
       <p>{{ $project->description}}</p>
       <hr>
     </div>
@@ -145,9 +145,6 @@
   <div class="w3-container w3-margin-bottom">
       <p>Find me on social media.</p>
         <i class="fa fa-facebook-official w3-hover-opacity"></i> 
-        <i class="fa fa-instagram w3-hover-opacity"></i> 
-        <i class="fa fa-snapchat w3-hover-opacity"></i> 
-        <i class="fa fa-pinterest-p w3-hover-opacity"></i> 
         <i class="fa fa-twitter w3-hover-opacity"></i> 
         <i class="fa fa-linkedin w3-hover-opacity"></i> 
   </div>

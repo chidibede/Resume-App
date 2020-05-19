@@ -22,22 +22,22 @@
           </div>
         </div>
         <div class="w3-container">
-          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Your Profession 
-            <i class="fa fa-pencil fa-fw w3-margin-right w3-large w3-text-teal"></i></p>
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Your Location and Address
-              <i class="fa fa-pencil fa-fw w3-margin-right w3-large w3-text-teal"></i>
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-blue"></i>Your Profession 
+            <i class="fa fa-pencil fa-fw w3-margin-right w3-large w3-text-blue"></i></p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-blue"></i>Your Location and Address
+              <i class="fa fa-pencil fa-fw w3-margin-right w3-large w3-text-blue"></i>
           </p>
-          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>User Email Address</p>
-          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>Your Phone Number 
-            <i class="fa fa-pencil fa-fw w3-margin-right w3-large w3-text-teal"></i></p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-blue"></i>User Email Address</p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-blue"></i>Your Phone Number 
+            <i class="fa fa-pencil fa-fw w3-margin-right w3-large w3-text-blue"></i></p>
           <hr>
 
-          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills </b></p>
-          <p>Add Skill <i class="fa fa-plus-circle fa-fw w3-margin-right w3-large w3-text-teal"></i> </p>
+          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-blue"></i>Skills </b></p>
+          <p>Add Skill <i class="fa fa-plus-circle fa-fw w3-margin-right w3-large w3-text-blue"></i> </p>
           
           <hr>
-          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
-          <p>Add a Language <i class="fa fa-plus-circle fa-fw w3-margin-right w3-large w3-text-teal"></i> </p>
+          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-blue"></i>Languages</b></p>
+          <p>Add a Language <i class="fa fa-plus-circle fa-fw w3-margin-right w3-large w3-text-blue"></i> </p>
           <br>
         </div>
       </div>
@@ -49,35 +49,35 @@
     <div class="w3-twothird w3-margin-top">
     
       <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-14"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+        <h2 class="w3-text-grey w3-padding-14"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>Work Experience</h2>
         <div class="w3-container">
-        <p>Your Current Employment <i class="fa fa-pencil fa-fw w3-margin-right w3-large w3-text-teal"></i></p>
+        <p>Your Current Employment <i class="fa fa-pencil fa-fw w3-margin-right w3-large w3-text-blue"></i></p>
         </div>
         <div class="w3-container">
-          <p>Former Employment Position <i class="fa fa-pencil fa-fw w3-margin-right w3-large w3-text-teal"></i></p>
+          <p>Former Employment Position <i class="fa fa-pencil fa-fw w3-margin-right w3-large w3-text-blue"></i></p>
         </div>
       </div>
 
       <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-14"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+        <h2 class="w3-text-grey w3-padding-14"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>Education</h2>
         <div class="w3-container">
-          <p>Add Education and Certification <i class="fa fa-plus-circle fa-fw w3-margin-right w3-large w3-text-teal"></i></p>
+          <p>Add Education and Certification <i class="fa fa-plus-circle fa-fw w3-margin-right w3-large w3-text-blue"></i></p>
           <hr>
         </div>
       </div>
 
       <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-14"><i class="fa fa-handshake-o fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Volunteer Experience</h2>
+        <h2 class="w3-text-grey w3-padding-14"><i class="fa fa-handshake-o fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>Volunteer Experience</h2>
         <div class="w3-container">
-          <p>Add Volunteer Experience <i class="fa fa-plus-circle fa-fw w3-margin-right w3-large w3-text-teal"></i></p>
+          <p>Add Volunteer Experience <i class="fa fa-plus-circle fa-fw w3-margin-right w3-large w3-text-blue"></i></p>
           <hr>
         </div>
       </div>
 
       <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-14"><i class="fa fa-cogs fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Ongoing And Completed Projects</h2>
+        <h2 class="w3-text-grey w3-padding-14"><i class="fa fa-cogs fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>Ongoing And Completed Projects</h2>
         <div class="w3-container">
-          <p>Add Ongoing And Completed Projects<i class="fa fa-plus-circle fa-fw w3-margin-right w3-large w3-text-teal"></i></p>
+          <p>Add Ongoing And Completed Projects<i class="fa fa-plus-circle fa-fw w3-margin-right w3-large w3-text-blue"></i></p>
           <hr>
         </div>
       </div>
