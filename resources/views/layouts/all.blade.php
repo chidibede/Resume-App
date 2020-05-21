@@ -16,8 +16,7 @@
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Roboto:300');
-.w3-sidebar {width: 120px;border-right: 1px solid #f1f1f1}
-#myNavbar{border-bottom: 1px solid #f1f1f1}
+.w3-sidebar {width: 120px;border: 1px solid #f1f1f1}
 body {
 
   background:linear-gradient(-45deg, #f5f7f8 25%, #f6f6f6 40%, #fff 55%);
@@ -39,8 +38,21 @@ h2 {font-size:24px;font-weight:300;}
   text-align: left;
 }
 p {
-  font-size:14px;
+  font-size:16px;
   color:#565656;
+}
+.w3-top{
+  margin-top:13%;
+  padding-bottom: 2%;
+}
+.w3-top a{
+  font-size:16px;
+  color:#565656;
+}
+
+
+input:focus {
+    outline:none;
 }
 @media screen and (max-width: 600px) {
   .yield{
@@ -51,13 +63,17 @@ p {
 </style>
 </head>
 <body>
-<div class="w3-fixed">
+ <div>
+  <div class="w3-bar w3-blue w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right w3-hover-light-gray w3-hover-text-blue" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars w3-xlarge "></i></a>
+    <a href="{{ url('/') }}" class="w3-bar-item w3-button w3-padding-large w3-hover-light-gray w3-hover-text-blue ">
+    <i class="fa fa-home   w3-xlarge"></i>
+    {{ 'Web CV' }}
+    </a>
+  </div>
+</div>
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-  <!-- Avatar image in top left corner -->
-  <a href="{{ url('/') }}" class="w3-bar-item w3-button w3-padding-large w3-hover-light-gray">
-    <i class="fa fa-home w3-text-blue w3-xxlarge"></i>
-    <p>{{ 'Web CV' }}</p>
-  </a>
+
   <!-- Authentication Links -->
 @guest
     <a href="{{ route('login') }}" class="w3-bar-item w3-button w3-padding-large w3-hover-light-gray">
@@ -96,59 +112,61 @@ p {
        </form>
 @endguest
 </nav>
-</div>
 
-<nav class=" w3-white w3-hide-large w3-hide-medium w3-margin-bottom"  id="myNavbar">
-  <nav class="w3-bar w3-center w3-small">
-  <!-- Avatar image in top left corner -->
-  <a href="{{ url('/') }}" class="w3-bar-item w3-button w3-hover-light-gray" style="width:20% !important">
-    <i class="fa fa-home w3-text-blue w3-xlarge"></i>
-    <p>{{ 'Web CV' }}</p>
-  </a>
-
+<nav id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-top">
 
   <!-- Authentication Links -->
 @guest
-    <a href="{{ route('login') }}" class="w3-bar-item w3-button w3-padding-large w3-hover-light-gray" style="width:36% !important">
-      <i class="fa fa-sign-in w3-text-blue w3-xlarge"></i>
-      <p>{{ __('Login') }}</p>
+    <a href="{{ route('login') }}" class="w3-bar-item w3-button w3-padding-large w3-hover-light-gray">
+      <i class="fa fa-sign-in w3-text-blue w3-xlarge" style="margin-left: 2%;"></i>
+      {{ __('Login') }}
     </a>
 
        @if (Route::has('register'))
-          <a href="{{ route('register') }}" class="w3-bar-item w3-button w3-padding-large w3-hover-light-gray" style="width:36% !important">
-            <i class="fa fa-user-plus w3-text-blue w3-xlarge"></i>
-            <p>{{ __('Register') }}</p>
+          <a href="{{ route('register') }}" class="w3-bar-item w3-button w3-padding-large w3-hover-light-gray">
+            <i class="fa fa-user-plus w3-text-blue w3-xlarge" style="margin-left: 2%;"></i>
+            {{ __('Register') }}
           </a>
        @endif
   @else
-    <a href="/profile" class="w3-bar-item w3-button w3-hover-light-gray" style="width:20% !important">
-        <i class="fa fa-user w3-text-blue w3-xlarge"></i>
-        <p>{{ Auth::user()->name }} </p>
+    <a href="/profile" class="w3-bar-item w3-button w3-hover-light-gray" >
+        <i class="fa fa-user w3-text-blue w3-xlarge"style="margin-left: 2%;"></i>
+        {{ Auth::user()->name }}
       </a>
 
-        <a href="{{ '/generate_cv' }}" class="w3-bar-item w3-button  w3-hover-light-gray" style="width:20% !important">
-          <i class="fa fa-pencil-square-o w3-text-blue w3-xlarge"></i>
-          <p>Create CV</p>
+        <a href="{{ '/generate_cv' }}" class="w3-bar-item w3-button  w3-hover-light-gray" >
+          <i class="fa fa-pencil-square-o w3-text-blue w3-xlarge" style="margin-left: 2%;"></i>
+          Create CV
         </a>
 
-        <a href="/cv_view/{{Auth::user()->username}}" class="w3-bar-item w3-button  w3-hover-light-gray" style="width:20% !important">
-          <i class="fa fa-file-text w3-text-blue w3-xlarge"></i>
-          <p>View CV</p>
+        <a href="/cv_view/{{Auth::user()->username}}" class="w3-bar-item w3-button  w3-hover-light-gray" >
+          <i class="fa fa-file-text w3-text-blue w3-xlarge" style="margin-left: 2%;"></i>
+          View CV
         </a>
 
-        <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="w3-dropdown-hover w3-button  w3-hover-light-gray" style="width:20% !important">
-          <i class="fa fa-power-off w3-text-blue w3-xlarge"></i>
-          <p>{{ __('Logout') }}</p>
+        <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="w3-bar-item w3-button w3-hover-light-gray" >
+          <i class="fa fa-power-off w3-text-blue w3-xlarge" style="margin-left: 2%;"></i>
+          {{ __('Logout') }}
         </a>
          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
          </form>
 @endguest
-    </nav>
-    </nav>
+</nav>
 
 <div class="yield"> @yield('content')</div>
 
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
 </body>
 </html>
 

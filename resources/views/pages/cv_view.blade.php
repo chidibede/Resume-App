@@ -39,7 +39,7 @@
           @foreach($skills as $skill)
             <p>HTML/CSS/Javascript</p>
             <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal pl-2" style="width:{{ $skill->level}}%">{{ $skill->level}}</div>
+            <div class="w3-container w3-center w3-round-xlarge w3-blue pl-2" style="width:{{ $skill->level}}%">{{ $skill->level}}</div>
             </div>
             <p>{{ $skill->skill_name}}</p>
             <br>
@@ -51,7 +51,7 @@
           @foreach($languages as $language)
             <p>{{ $language->language_name}}</p>
             <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal pl-2" style="height:24px;width:{{ $language->level}}%">{{ $language->level}}</div>
+            <div class="w3-round-xlarge w3-blue pl-2" style="height:24px;width:{{ $language->level}}%">{{ $language->level}}</div>
             </div>
           @endforeach
 
@@ -73,7 +73,7 @@
         @foreach($currentjobs as $currentjob)
           <div class="w3-container">
             <h5 class="w3-opacity"><b>{{ $currentjob->name}}/{{ $currentjob->firm}}/{{ $currentjob->location}}</b></h5>
-            <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $currentjob->start_date}} - <span class="w3-tag w3-teal w3-round">{{ $currentjob->end_date}}</span></h6>
+            <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $currentjob->start_date}} - <span class="w3-tag w3-blue w3-round">{{ $currentjob->end_date}}</span></h6>
             <p>{{ $currentjob->job_description}}</p>
             <hr>
           </div>
@@ -85,7 +85,7 @@
         @foreach ($works as $work)
           <div class="w3-container">
             <h5 class="w3-opacity"><b>{{ $work->title}}/{{ $work->firm}}/{{ $work->location}}</b></h5>
-            <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $work->start_date}} - <span class="w3-tag w3-teal w3-round">{{ $work->end_date}}</span></h6>
+            <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $work->start_date}} - <span class="w3-tag w3-blue w3-round">{{ $work->end_date}}</span></h6>
             <p>{{ $work->job_description}}</p>
             <hr>
           </div>    
@@ -117,7 +117,7 @@
       @foreach ($volunteers as $volunteer)
       <div class="w3-container">
         <h5 class="w3-opacity"><b>{{ $volunteer->title}}/{{ $volunteer->firm}}/{{ $volunteer->location}}</b></h5>
-        <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $volunteer->start_date}} - <span class="w3-tag w3-teal w3-round">{{ $volunteer->end_date}}</span></h6>
+        <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $volunteer->start_date}} - <span class="w3-tag w3-blue w3-round">{{ $volunteer->end_date}}</span></h6>
         <p>{{ $volunteer->job_description}}</p>
         <hr>
       </div>    

@@ -4,7 +4,7 @@
 <div class="w3-container w3-content" style="max-width:1400px;"> 
   <!-- The Grid -->
 <div class="w3-row">
- <div class="w3-container w3-card w3-white w3-round w3-padding-large" style="max-width:680px;margin:80px auto;">
+ <div class="w3-container w3-card w3-white w3-round w3-padding-large" style="max-width:680px;margin:60px auto;">
         <header>
           <h2>Edit Profile</h2>
         </header>
