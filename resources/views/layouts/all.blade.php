@@ -11,12 +11,17 @@
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
 
-<link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- style -->
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Roboto:300');
 .w3-sidebar {width: 120px;border: 1px solid #f1f1f1}
+.span{
+  cursor: pointer;
+}
 body {
 
   background:linear-gradient(-45deg, #f5f7f8 25%, #f6f6f6 40%, #fff 55%);
