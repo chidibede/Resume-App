@@ -94,13 +94,13 @@ input:focus {
        @endif
   @else
       <a href="/profile" class="w3-bar-item w3-button w3-padding-large w3-hover-light-gray">
-        <i class="fa fa-user w3-text-blue w3-xxlarge"></i>
+        <img src="/img/default.png" alt="Profile" width="80" height="80" style="border-radius: 40px;">
         <p>{{ Auth::user()->name }} </p>
       </a>
 
       <a href="{{ '/generate_cv' }}" class="w3-bar-item w3-button w3-padding-large w3-hover-light-gray">
         <i class="fa fa-pencil-square-o w3-text-blue w3-xxlarge"></i>
-        <p>Create CV</p>
+        <p>Create & Edit CV</p>
       </a>
 
       <a href="/cv_view/{{Auth::user()->username}}" class="w3-bar-item w3-button w3-padding-large w3-hover-light-gray">
@@ -135,7 +135,7 @@ input:focus {
        @endif
   @else
     <a href="/profile" class="w3-bar-item w3-button w3-hover-light-gray" >
-        <i class="fa fa-user w3-text-blue w3-xlarge"style="margin-left: 2%;"></i>
+          <img src="/img/default.png" alt="Profile" width="30" height="30" style="margin-left: 2%; border-radius: 15px;">
         {{ Auth::user()->name }}
       </a>
 
