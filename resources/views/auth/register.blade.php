@@ -63,7 +63,7 @@
       </p>
 
         <p><br>
-            <button type="submit" class="w3-button w3-text-white w3-blue w3-round">
+            <button type="submit" class="w3-button w3-text-white w3-blue w3-round w3-hover-blue w3-hover-opacity">
                  {{ __('Register') }}
             </button>
         </p>
