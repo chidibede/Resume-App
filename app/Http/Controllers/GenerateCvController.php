@@ -3,13 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Skill;
 
 class GenerateCvController extends Controller
 {
     //
     public function generate_cv(){
         $user = auth()->user();
-        return view('pages.generate_cv')->with('user', $user);
+        $skills = Skill::where('user_id', '=', $user->id)->get();
+   
+        $data = [
+            'skills'=> $skills,
+            'user'=> $user
+        ];
+        return view('pages.generate_cv', $data);
     }
 
 
@@ -39,5 +46,32 @@ class GenerateCvController extends Controller
         $user->save();
 
         return response()->json(['success'=>'Email updated','data'=> $request->email]);
+    }
+
+    public function updatePhone(Request $request) {
+
+        $user = auth()->user();
+        $user->phone_number = $request->input('phone');
+        $user->save();
+
+        return response()->json(['success'=>'Phone updated','data'=> $request->phone]);
+    }
+
+
+
+    public function createSkills(Request $request) {
+
+         // validate the form
+         $this->validate($request, [
+            'level' => 'required',
+        ]);
+
+        $skill = new Skill ();
+        $skill->skill_name = $request->input('skill_name');
+        $skill->user_id = auth()->user()->id;
+        $skill->level = $request->input('level');
+        $skill->save ();
+        // return redirect('/generate_cv')->with('success', '  updated successfully');
+        return response()->json(['success'=>'Skills updated','data'=> [$request->skill_name, $request->level]]);
     }
 }

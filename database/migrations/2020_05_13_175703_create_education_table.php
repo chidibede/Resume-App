@@ -16,11 +16,11 @@ class CreateEducationTable extends Migration
         Schema::create('education', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('school');
-            $table->string('location');
-            $table->string('start_date');
-            $table->string('end_date');
-            $table->string('certificate');
+            $table->string('school')->nullable();
+            $table->string('location')->nullable();
+            $table->string('start_date')->nullable();
+            $table->string('end_date')->nullable();
+            $table->string('certificate')->nullable();
             $table->timestamps();
 
             $table->index('user_id');

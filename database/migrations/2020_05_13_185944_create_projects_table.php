@@ -16,10 +16,10 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('name');
-            $table->string('link');
-            $table->longText('description');
-            $table->string('tools');
+            $table->string('name')->nullable();
+            $table->string('link')->nullable();
+            $table->longText('description')->nullable();
+            $table->string('tools')->nullable();
             $table->timestamps();
 
             $table->index('user_id');

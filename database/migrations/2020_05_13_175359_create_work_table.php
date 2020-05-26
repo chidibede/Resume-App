@@ -16,12 +16,12 @@ class CreateWorkTable extends Migration
         Schema::create('work', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('title');
-            $table->string('firm');
-            $table->string('location');
-            $table->string('start_date');
-            $table->string('end_date');
-            $table->longText('job_description');
+            $table->string('job_title')->nullable();
+            $table->string('employer')->nullable();
+            $table->string('location')->nullable();
+            $table->string('start_date')->nullable();
+            $table->string('end_date')->nullable();
+            $table->longText('job_description')->nullable();
             $table->timestamps();
 
             $table->index('user_id');

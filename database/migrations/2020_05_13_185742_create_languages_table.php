@@ -17,7 +17,7 @@ class CreateLanguagesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('language_name');
-            $table->integer('level');
+            $table->string('level');
             $table->timestamps();
 
             $table->index('user_id');

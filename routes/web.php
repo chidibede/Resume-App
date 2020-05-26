@@ -29,3 +29,5 @@ Route::get('/generate_cv', 'GenerateCvController@generate_cv');
 Route::post('/update_profession', 'GenerateCvController@updateProfession')->name('updateProfession');
 Route::post('/update_location', 'GenerateCvController@updateLocation')->name('updateLocation');
 Route::post('/update_email', 'GenerateCvController@updateEmail')->name('updateEmail');
+Route::post('/update_phone', 'GenerateCvController@updatePhone')->name('updatePhone');
+Route::post('/create_skills', 'GenerateCvController@createSkills')->name('createSkills');

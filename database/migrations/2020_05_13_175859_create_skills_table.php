@@ -17,7 +17,7 @@ class CreateSkillsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('skill_name');
-            $table->integer('level');
+            $table->string('level');
             $table->timestamps();
 
             $table->index('user_id');
