@@ -1,8 +1,9 @@
 @extends('layouts.all')
 
 @section('content')
+@if($user)
 <body class="w3-light-grey">
-    
+
 
 
 <!-- Page Container -->
@@ -18,7 +19,7 @@
         <div class="w3-display-container w3-padding-bottom">
           <img src="/img/default.png"  height="400" style="width:100%" alt="Avatar">
           <div class="w3-display-bottomleft w3-container w3-text-black">
-            <h3 style="background: #ddd;">User Fullname</h3>
+          <h3 style="background: #ddd;">{{$user->name}}</h3>
           </div>
         </div>
         <div class="w3-container">
@@ -30,13 +31,15 @@
             <i class="fa fa-pencil fa-fw w3-margin-right w3-large w3-text-blue w3-right"></i>
             </span>
           </p>
-          <div class="collapse" id="profession">
+          <p class="alert alert-success" id="profession-alert" style="display:none"></p>
+         <form method="POST" class="collapse" id="profession" data-route="{{ route('updateProfession')}}">
+            @csrf
             <div class="card" style="border: none;">          
               <div class="form-group">
-               <input type="text" placeholder="Enter Profession" class="form-control w3-margin-bottom">
-               <a href="#" class="btn btn-primary">Save</a>
+              <input type="text" name='profession' placeholder="Enter Profession" id="profession-input" class="form-control w3-margin-bottom" value="{{$user->profession}}">
+               <button type="button" class="btn btn-primary" id='profession-btn'>Save</button>
               </div>
-            </div>
+            </form>
           </div><hr>
 
           <!-- Location and Address -->
@@ -46,18 +49,19 @@
             <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue"></i>
             </span>
           </p>
-          <div class="collapse" id="location">
+          <p class="alert alert-success" id="location-alert" style="display:none"></p>
+        <form method="POST" data-route = "{{ route('updateLocation')}}" class="collapse" id="location">
             <div class="card" style="border: none;">
               
-              <input list="country" placeholder="Enter Nationality" class="form-control w3-margin-bottom">
+            <input id="nationality-input" list="country" placeholder="Enter Nationality" class="form-control w3-margin-bottom" name='nationality' value="{{ $user->nationality}}">
                @include('inc.countries')
 
               <div class="form-group">
-              <input type="text" placeholder="Enter city and address" class="form-control w3-margin-bottom" id="usr">
-              <a href="#" class="btn btn-primary">Save</a>
+              <input id="location-input" type="text" placeholder="Enter city and address" class="form-control w3-margin-bottom" name='location' id="usr" value="{{$user->location}}">
+              <button type="button" class="btn btn-primary" id='location-btn'>Save</button>
             </div>
             </div>
-          </div><hr>
+          </form><hr>
 
           <!-- Email Address -->
           <p>
@@ -66,15 +70,16 @@
             <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue"></i>
             </span>
           </p>
-          <div class="collapse" id="email">
+          <p class="alert alert-success" id="email-alert" style="display:none"></p>
+        <form method="POST" data-route="{{ route('updateEmail')}}" class="collapse" id="email">
            <div class="card" style="border: none;">
 
           <div class="form-group">
-           <input type="text" placeholder="Enter email address" class="form-control w3-margin-bottom">
-          <a href="#" class="btn btn-primary">Save</a>
+          <input id="email-input" value="{{$user->cv_email}}" name='email' type="text" placeholder="Enter email address" class="form-control w3-margin-bottom">
+           <button type="button" class="btn btn-primary" id='email-btn'>Save</button>
             </div>
             </div>
-          </div><hr>
+          </form><hr>
 
           <!-- Phone Number -->
           <p>
@@ -367,5 +372,11 @@
   <!-- End Page Container -->
 </div>
 
-
+ <!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+ <script src="{{ asset('js/create_cv.js') }}" ></script>
+</body>
+@else
+<h1>Login</h1>
+@endif
 @endsection

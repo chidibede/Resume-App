@@ -13,9 +13,7 @@ class PagesController extends Controller
         return view('pages.home');
     }
 
-    public function generate_cv(){
-        return view('pages.generate_cv');
-    }
+    
 
     public function cv_view($username){
         // Querying the database
