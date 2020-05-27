@@ -74,7 +74,7 @@ class GenerateCvController extends Controller
         $skill->level = $request->get('level');
         $skill->save ();
         // return redirect('/generate_cv')->with('success', '  updated successfully');
-        return response()->json(['success'=>'Skills updated']);
+        return response()->json(['success'=> 'Skills updated']);
     }
 
 

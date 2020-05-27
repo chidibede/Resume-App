@@ -139,12 +139,14 @@ $(document).ready(function(){
             data: frm_serialized,
             success: function(result) {
                
-                $('#skills-alert').html(result.success).fadeIn(1000).fadeOut(2000);
+                $('#skills-alert').html(result.success).fadeIn(800).fadeOut(2000);
                 $("#skills")[0].reset();
+                $( "#skill-list" ).load(window.location.href + " #skill-list" );
             }
         });
 
     });
     // end of click event listener for updating skills
+    
 
 });

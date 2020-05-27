@@ -127,10 +127,10 @@
 
 
                         <!-- Skills Listing and Updating-->
-                        <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-blue"></i>Skills
+                        <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-blue"></i>Skills 
                             </b></p>
                         {{-- Skills list --}}
-                        <table class="table">
+                        <table class="table" id="skill-list">
 
                             <tbody>
                                 @foreach($skills as $skill)
@@ -138,11 +138,11 @@
                                         <td><a href=""><small>{{ $skill->skill_name }}</small></a></td>
                                         <td>
                                             <a data-toggle="collapse" href="#skills-{{ $skill->id }}" role="button"
-                                                aria-expanded="false" aria-controls="skills-{{ $skill->id }}"
-                                                href="#skills-{{ $skill->id }}" class="span"><i
-                                                    class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
-                                            
-                                            
+                                                aria-expanded="false" aria-controls="skills-{{ $skill->id }}" class="span">
+                                                <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
+                                                
+                                                  
+                                                    
                                             <!-- Skills Editing Form -->
                                             <form method="POST"
                                                 action="{{ action('GenerateCvController@updateSkills', $skill->id) }}"
@@ -195,6 +195,7 @@
                                 aria-controls="skills" class="span">
                                 Add Skill
                                 <i class="fa fa-plus-circle fa-fw w3-margin-right w3-right w3-xlarge w3-text-blue"></i>
+                                
                             </span>
                         </p>
                         <p class="alert alert-success" id="skills-alert" style="display:none"></p>
