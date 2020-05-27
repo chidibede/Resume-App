@@ -28,6 +28,7 @@ $(document).ready(function(){
             success: function(result) {
                
                 $('#profession-alert').html(result.success).fadeIn(1000).fadeOut(2000);
+                $( "#profession-label" ).load(window.location.href + " #profession-label" );
             }
         });
 
@@ -56,6 +57,7 @@ $(document).ready(function(){
                
               
                 $('#location-alert').html(result.success).fadeIn(1000).fadeOut(2000);
+                $( "#location-label" ).load(window.location.href + " #location-label" );
             }
         });
 
@@ -85,6 +87,7 @@ $(document).ready(function(){
                
               
                 $('#email-alert').html(result.success).fadeIn(1000).fadeOut(2000);
+                $( "#email-label" ).load(window.location.href + " #email-label" );
             }
         });
 
@@ -112,6 +115,7 @@ $(document).ready(function(){
                
               
                 $('#phone-alert').html(result.success).fadeIn(1000).fadeOut(2000);
+                $( "#phone-label" ).load(window.location.href + " #phone-label" );
             }
         });
 

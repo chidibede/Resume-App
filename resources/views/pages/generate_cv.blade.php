@@ -27,13 +27,23 @@
                         <div class="w3-container">
 
                             <!-- Profession -->
-                            <p class="w3-margin-bottom">
+                            <p class="w3-margin-bottom" id='profession-label'>
                                 <span data-toggle="collapse" href="#profession" role="button" aria-expanded="false"
                                     aria-controls="profession" class="span">
-                                    <i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-blue"></i>Your
-                                    Profession
-                                    <i class="fa fa-pencil fa-fw w3-margin-right w3-large w3-text-blue w3-right"></i>
-                                </span>
+
+                                    {{-- Output Your profession if exists --}}
+                                    @if($user->profession)
+                                      <i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-blue"></i>{{$user->profession}}
+                            
+                                      <i class="fa fa-pencil fa-fw w3-margin-right w3-large w3-text-blue w3-right"></i>
+                                      </span>
+                                    @else
+                                        <i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-blue"></i>Your
+                                        Profession
+                                        <i class="fa fa-pencil fa-fw w3-margin-right w3-large w3-text-blue w3-right"></i>
+                                       </span>
+                                    @endif
+                                    {{-- End of Output Your profession if exists --}}
                             </p>
                             <p class="alert alert-success" id="profession-alert" style="display:none"></p>
                             <form method="POST" class="collapse" id="profession"
@@ -51,13 +61,22 @@
                         <hr>
 
                         <!-- Location and Address -->
-                        <p>
+                        <p id='location-label'>
                             <span data-toggle="collapse" href="#location" role="button" aria-expanded="false"
                                 aria-controls="location" class="span">
-                                <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-blue"></i>Your Location and
-                                Address
-                                <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue"></i>
-                            </span>
+
+                                {{-- Output Your location if exists --}}
+                                @if($user->location)
+                                  <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-blue"></i>{{$user->location}}/{{$user->nationality}}
+                                  <i class="fa fa-pencil fa-fw w3-margin-right w3-large w3-text-blue w3-right"></i>
+                                    </span>
+                                @else
+                                    <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-blue"></i>Your Location and
+                                    Address
+                                    <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue"></i>
+                                  </span>
+                              @endif
+                              {{-- End Output Your profession if exists --}}
                         </p>
                         <p class="alert alert-success" id="location-alert" style="display:none"></p>
                         <form method="POST" data-route="{{ route('updateLocation') }}"
@@ -81,12 +100,22 @@
                         <hr>
 
                         <!-- Email Address -->
-                        <p>
+                        <p id='email-label'>
                             <span data-toggle="collapse" href="#email" role="button" aria-expanded="false"
                                 aria-controls="email" class="span">
-                                <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-blue"></i> Email Address
-                                <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue"></i>
-                            </span>
+
+                                {{-- Output Your location if exists --}}
+                              @if($user->cv_email)
+                                <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-blue"></i>{{$user->cv_email}}
+                                <i class="fa fa-pencil fa-fw w3-margin-right w3-large w3-text-blue w3-right"></i>
+                                </span>
+                              @else
+                              
+                                {{-- End Output Your profession if exists --}}
+                                  <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-blue"></i> Email Address
+                                  <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue"></i>
+                                  </span>
+                              @endif
                         </p>
                         <p class="alert alert-success" id="email-alert" style="display:none"></p>
                         <form method="POST" data-route="{{ route('updateEmail') }}" class="collapse"
@@ -104,12 +133,20 @@
                         <hr>
 
                         <!-- Phone Number -->
-                        <p>
+                        <p id='phone-label'>
                             <span data-toggle="collapse" href="#phone" role="button" aria-expanded="false"
                                 aria-controls="phone" class="span">
+
+                                @if ($user->phone_number)
+                                <i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-blue"></i>{{$user->phone_number}}
+                                <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue"></i>
+                                </span>
+                                @else
                                 <i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-blue"></i>Your Phone Number
                                 <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue"></i>
-                            </span>
+                                </span>
+                                @endif
+                                
                         </p>
                         <p class="alert alert-success" id="phone-alert" style="display:none"></p>
                         <form method="POST" data-route="{{ route('updatePhone') }}" class="collapse"
@@ -173,7 +210,7 @@
                                                             <option>90%</option>
                                                             <option>100%</option>
                                                         </select>
-                                                        <button type="submit" class="btn btn-primary">Save</button>
+                                                        <button type="submit" onsubmit="updatePage()" class="btn btn-primary">Save</button>
 
                                                     </div>
                                                 </div>
