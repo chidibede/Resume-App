@@ -68,18 +68,13 @@ class GenerateCvController extends Controller
 
     public function createSkills(Request $request) {
 
-         // validate the form
-         $this->validate($request, [
-            'level' => 'required',
-        ]);
-
-        $skill = new Skill ();
-        $skill->skill_name = $request->input('skill_name');
+        $skill = new Skill();
+        $skill->skill_name = $request->get('skill_name');
         $skill->user_id = auth()->user()->id;
-        $skill->level = $request->input('level');
+        $skill->level = $request->get('level');
         $skill->save ();
         // return redirect('/generate_cv')->with('success', '  updated successfully');
-        return response()->json(['success'=>'Skills updated','data'=> [$request->skill_name, $request->level]]);
+        return response()->json(['success'=>'Skills updated']);
     }
 
 

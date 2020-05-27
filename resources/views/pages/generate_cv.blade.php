@@ -173,8 +173,7 @@
                                                             <option>90%</option>
                                                             <option>100%</option>
                                                         </select>
-                                                        <button type="submit" class="btn btn-primary"
-                                                            id="skills-btn">Save</button>
+                                                        <button type="submit" class="btn btn-primary">Save</button>
 
                                                     </div>
                                                 </div>
@@ -226,7 +225,7 @@
                                         <option>90%</option>
                                         <option>100%</option>
                                     </select>
-                                    <button type="button" class="btn btn-primary" id="skills-btn">Save</button>
+                                    <button type="submit" class="btn btn-primary" id="skills-btn">Save</button>
 
                                 </div>
                             </div>

@@ -119,10 +119,11 @@ $(document).ready(function(){
     // end of click event listener for updating phone number
 
 
-       // start of click event listener for updating location
-       $('#skills-btn').click(function(e){
+       // start of click event listener for updating skills
+       $('#skills').on('submit',function(e){
 
         const route = $('#skills').data('route');
+        frm_serialized = $(this).serialize();
         e.preventDefault();
 
         $.ajaxSetup({
@@ -135,46 +136,15 @@ $(document).ready(function(){
 
             url: route,
             type:  'POST',
-            data: {skill_name: $('#skill_name').val(), level: $('#level').val() },
+            data: frm_serialized,
             success: function(result) {
                
-              
-                $("#skills")[0].reset();
                 $('#skills-alert').html(result.success).fadeIn(1000).fadeOut(2000);
+                $("#skills")[0].reset();
             }
         });
 
     });
-    // end of click event listener for updating skills
-
-    // var id = JSON.parse("{{ json_encode($skills->id) }}");
-    // console.log(id)
-
-    // // start of click event listener for updating location
-    // $('#skills-1').click(function(e){
-
-    //     e.preventDefault();
-
-    //     $.ajaxSetup({
-    //         headers: {
-    //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    //         }
-    //     });
-
-    //     $.ajax({
-
-    //         url: "{{url('/create_skills/{id}')}}",
-    //         type:  'POST',
-    //         data: {skill_name: $('#skill_name').val(), level: $('#level').val() },
-    //         success: function(result) {
-               
-              
-    //             $("#skills")[0].reset();
-    //             $('#skills-alert').html(result.success).fadeIn(1000).fadeOut(2000);
-    //         }
-    //     });
-
-    // });
     // end of click event listener for updating skills
 
 });
