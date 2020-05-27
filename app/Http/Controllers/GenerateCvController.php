@@ -8,7 +8,14 @@ use App\Skill;
 class GenerateCvController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function generate_cv(){
+
+        
         $user = auth()->user();
         $skills = Skill::where('user_id', '=', $user->id)->get();
    
@@ -74,4 +81,15 @@ class GenerateCvController extends Controller
         // return redirect('/generate_cv')->with('success', '  updated successfully');
         return response()->json(['success'=>'Skills updated','data'=> [$request->skill_name, $request->level]]);
     }
+
+
+    public function updateSkills(Request $request, $id) {
+
+        $skill = Skill::find($id);
+        $skill->skill_name = $request->get('skill_name');
+        $skill->level = $request->get('level');
+        $skill->save ();
+        return redirect('/generate_cv')->with('success', '  updated successfully');
+       
+   }
 }
