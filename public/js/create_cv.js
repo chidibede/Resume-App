@@ -158,7 +158,7 @@ $(document).ready(function(){
     // end of click event listener for updating skills
     
 
-    $(".updateSkills").on('click', function(e) {
+    $("body").on('click', '.updateSkills', function(e) {
         e.preventDefault();
         var id = $(this).attr("data-id");
         skill_name_id = '#skill_name'+id;

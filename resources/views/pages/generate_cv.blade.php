@@ -211,7 +211,7 @@
                                                             <option>90%</option>
                                                             <option>100%</option>
                                                         </select>
-                                                        <button type="submit" data-id={{$skill->id}} class="btn btn-primary updateSkills">Save</button>
+                                                        <button type="button" data-id={{$skill->id}} class="btn btn-primary updateSkills">Save</button>
 
                                                     </div>
                                                 </div>
