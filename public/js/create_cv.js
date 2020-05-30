@@ -127,12 +127,11 @@ $(document).ready(function(){
     // end of click event listener for updating phone number
 
 
-       // start of click event listener for updating skills
+       // start of click event listener for adding skills
        $('#skills').on('submit',function(e){
 
         const route = $('#skills').data('route');
         frm_serialized = $(this).serialize();
-        var div=$('#skill-list').html();
         e.preventDefault();
 
         $.ajaxSetup({
@@ -155,9 +154,11 @@ $(document).ready(function(){
         });
 
     });
-    // end of click event listener for updating skills
+    // end of click event listener for adding skills
     
 
+
+    // start of event listener for updating skills
     $("body").on('click', '.updateSkills', function(e) {
         e.preventDefault();
         var id = $(this).attr("data-id");
@@ -181,11 +182,75 @@ $(document).ready(function(){
             
                 $('#skills-edit-alert').html(result.success).fadeIn(800).fadeOut(2000);
                 $("#skill-list").load(" #skill-list > *");
-                console.log(data);
+               
             }
         });
 
     });
+    // end of event listener for updating skills
 
+
+
+     // start of click event listener for adding languages
+     $('#languages').on('submit',function(e){
+
+        const route = $('#languages').data('route');
+        frm_serialized = $(this).serialize();
+        e.preventDefault();
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+
+            url: route,
+            type:  'POST',
+            data: frm_serialized,
+            success: function(result) {
+               
+                $('#languages-alert').html(result.success).fadeIn(800).fadeOut(2000);
+                $("#languages")[0].reset();
+                $("#languages-list").load(" #languages-list > *")
+            }
+        });
+
+    });
+    // end of click event listener for adding languages
+    
+
+
+    // start of event listener for updating languages
+    $("body").on('click', '.updateLanguages', function(e) {
+        e.preventDefault();
+        var id = $(this).attr("data-id");
+        language_name_id = '#language_name'+id;
+        level_id = '#level'+id;
+        language_id_id = '#language_id'+id
+        var language_name = $(language_name_id).val();
+        var language_id = $(language_id_id).val();
+        var level = $(level_id).val();
+        var data = {language_name: language_name, level: level, language_id: language_id};
+        const route = $('#languages-'+ id).data('route');
+        frm_serialized = $('#languages-'+id).serialize();
+
+
+        $.ajax({
+            url: route,
+            type:  'POST',
+            dataType: 'json',
+            data: frm_serialized,
+            success: function(result) {
+            
+                $('#languages-edit-alert').html(result.success).fadeIn(800).fadeOut(2000);
+                $("#languages-list").load(" #languages-list > *");
+               
+            }
+        });
+
+    });
+    // end of event listener for updating languages
     
 });

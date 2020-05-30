@@ -52,9 +52,8 @@ class ProfileController extends Controller
         $user->name = $request->input('name');
         $user->username = $request->input('username');
         $user->email = $request->input('email');
-        $user->profession = $request->input('profession');
-        $user->location = $request->input('location');
-        $user->phone_number = $request->input('phone_number');
+        $user->website = $request->input('website');
+        $user->linkedin = $request->input('linkedin');
     
         // Save the Updated User Profile
         $user->save();

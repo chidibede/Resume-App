@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Skill;
+use App\Language;
 
 class GenerateCvController extends Controller
 {
@@ -18,9 +19,11 @@ class GenerateCvController extends Controller
         
         $user = auth()->user();
         $skills = Skill::where('user_id', '=', $user->id)->get();
+        $languages = Language::where('user_id', '=', $user->id)->get();
    
         $data = [
             'skills'=> $skills,
+            'languages' => $languages,
             'user'=> $user
         ];
         return view('pages.generate_cv', $data);
@@ -73,7 +76,7 @@ class GenerateCvController extends Controller
         $skill->user_id = auth()->user()->id;
         $skill->level = $request->get('level');
         $skill->save ();
-        // return redirect('/generate_cv')->with('success', '  updated successfully');
+
         return response()->json(['success'=> 'Skills updated']);
     }
 
@@ -84,8 +87,31 @@ class GenerateCvController extends Controller
         $skill->skill_name = $request->get('skill_name');
         $skill->level = $request->get('level');
         $skill->save ();
-        // return redirect('/generate_cv')->with('success', '  updated successfully');
         return response()->json(['success'=> 'Skills updated']);
        
    }
+
+
+   public function createLanguages(Request $request) {
+
+    $language = new Language();
+    $language->language_name = $request->get('language_name');
+    $language->user_id = auth()->user()->id;
+    $language->level = $request->get('level');
+    $language->save ();
+    // return redirect('/generate_cv')->with('success', '  updated successfully');
+    return response()->json(['success'=> 'Language updated']);
+}
+
+
+public function updateLanguages(Request $request, $id) {
+
+    $language = Language::find($id);
+    $language->language_name = $request->get('language_name');
+    $language->level = $request->get('level');
+    $language->save ();
+    return response()->json(['success'=> 'Language updated']);
+   
+}
+   
 }

@@ -1,9 +1,14 @@
 @extends('layouts.all')
 
 @section('content')
+
 <div class="w3-container w3-content" style="max-width:1400px;"> 
   <!-- The Grid -->
 <div class="w3-row">
+    {{-- messages alert --}}
+    <div class="col-md-8 mt-3 text-center" style="margin-left: 17%">
+        @include('inc.messages')
+    </div>
  <div class="w3-container w3-card w3-white w3-round w3-padding-large" style="max-width:680px;margin:60px auto;">
         <header>
           <h2>Edit Profile</h2>
@@ -37,21 +42,16 @@
                                 
                             </p>
 
+
                             <p>
-                                {{ Form::label('profession', 'Profession', ['class' =>  'w3-text-blue', ]) }}
-                                {{ Form::text('profession', $user->profession, [ 'class' =>  'w3-input', ]) }}
+                                {{ Form::label('website', 'Website', ['class' =>  'w3-text-blue', ]) }}
+                                {{ Form::text('website', $user->website, [ 'class' =>  'w3-input', ]) }}
                                 
                             </p>
 
                             <p>
-                                {{ Form::label('location', 'Location', ['class' =>  'w3-text-blue', ]) }}
-                                {{ Form::text('location', $user->location, [ 'class' =>  'w3-input', ]) }}
-                                
-                            </p>
-
-                            <p>
-                                {{ Form::label('phone_number', 'Phone Number', ['class' =>  'w3-text-blue', ]) }}
-                                {{ Form::text('phone_number', $user->phone_number, [ 'class' =>  'w3-input', ]) }}
+                                {{ Form::label('linkedin', 'Linkedin', ['class' =>  'w3-text-blue', ]) }}
+                                {{ Form::text('linkedin', $user->linkedin, [ 'class' =>  'w3-input', ]) }}
                                 
                             </p>
 

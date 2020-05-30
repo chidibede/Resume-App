@@ -32,3 +32,5 @@ Route::post('/updateEmail', 'GenerateCvController@updateEmail')->name('updateEma
 Route::post('/updatePhone', 'GenerateCvController@updatePhone')->name('updatePhone');
 Route::post('/createSkills', 'GenerateCvController@createSkills')->name('createSkills');
 Route::patch('/updateSkills/{id}', 'GenerateCvController@updateSkills')->name('updateSkills');
+Route::post('/createLanguages', 'GenerateCvController@createLanguages')->name('createLanguages');
+Route::patch('/updateLanguages/{id}', 'GenerateCvController@updateLanguages')->name('updateLanguages');
