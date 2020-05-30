@@ -53,8 +53,8 @@
                                     <div class="form-group">
                                         <input type="text" name='profession' placeholder="Enter Profession"
                                             id="profession-input" class="form-control w3-margin-bottom"
-                                            value="{{ $user->profession }}">
-                                        <button type="button" class="btn btn-primary" id='profession-btn'>Save</button>
+                                            value="{{ $user->profession }}" required>
+                                        <button type="submit" class="btn btn-primary" id='profession-btn'>Save</button>
                                     </div>
                             </form>
                         </div>
@@ -86,14 +86,14 @@
 
                                 <input id="nationality-input" list="country" placeholder="Enter Nationality"
                                     class="form-control w3-margin-bottom" name='nationality'
-                                    value="{{ $user->nationality }}">
+                                    value="{{ $user->nationality }}" required>
                                 @include('inc.countries')
 
                                 <div class="form-group">
                                     <input id="location-input" type="text" placeholder="Enter city and address"
                                         class="form-control w3-margin-bottom" name='location' id="usr"
-                                        value="{{ $user->location }}">
-                                    <button type="button" class="btn btn-primary" id='location-btn'>Save</button>
+                                        value="{{ $user->location }}" required>
+                                    <button type="submit" class="btn btn-primary" id='location-btn'>Save</button>
                                 </div>
                             </div>
                         </form>
@@ -125,8 +125,8 @@
 
                                 <div class="form-group">
                                     <input id="email-input" value="{{ $user->cv_email }}" name='email' type="text"
-                                        placeholder="Enter email address" class="form-control w3-margin-bottom">
-                                    <button type="button" class="btn btn-primary" id='email-btn'>Save</button>
+                                        placeholder="Enter email address" class="form-control w3-margin-bottom" required>
+                                    <button type="submit" class="btn btn-primary" id='email-btn'>Save</button>
                                 </div>
                             </div>
                         </form>
@@ -155,8 +155,8 @@
                             <div class="card" style="border: none;">
                                 <div class="form-group">
                                     <input id="phone-input" value="{{ $user->phone_number }}" name='phone' type="text"
-                                        placeholder="Enter Phone Number" class="form-control w3-margin-bottom">
-                                    <button type="button" class="btn btn-primary" id='phone-btn'>Save</button>
+                                        placeholder="Enter Phone Number" class="form-control w3-margin-bottom" required>
+                                    <button type="submit" class="btn btn-primary" id='phone-btn'>Save</button>
                                 </div>
                             </div>
                         </form>
@@ -166,6 +166,7 @@
                         <!-- Skills Listing and Updating-->
                         <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-blue"></i>Skills 
                             </b></p>
+                            <p id="skills-edit-alert" class="alert alert-success" style="display:none"></p>
                         {{-- Skills list --}}
                         <table class="table" id="skill-list">
 
@@ -173,6 +174,7 @@
                                 @foreach($skills as $skill)
                                     <tr>
                                         <td><a href=""><small>{{ $skill->skill_name }}</small></a></td>
+                                        
                                         <td>
                                             <a data-toggle="collapse" href="#skills-{{ $skill->id }}" role="button"
                                                 aria-expanded="false" aria-controls="skills-{{ $skill->id }}" class="span">
@@ -181,15 +183,14 @@
                                                   
                                                     
                                             <!-- Skills Editing Form -->
-                                            <form method="POST"
-                                                action="{{ action('GenerateCvController@updateSkills', $skill->id) }}"
+                                            <form method="POST" data-route="{{ url('updateSkills', $skill->id) }}"
                                                 class="collapse" id="skills-{{ $skill->id }}">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="PATCH">
-                                                <div class="card" style="border: none;">
+                                            <div id="skill-list-{{$skill->id}}" class="card" style="border: none;">
                                                     <div class="form-group">
-
-                                                        <input value="{{ $skill->skill_name }}" id="skill_name"
+                                                    <input type="hidden" name="skill_id" id="skill_id{{$skill->id}}" value="{{$skill->id}}">
+                                                        <input value="{{ $skill->skill_name }}" id="skill_name{{$skill->id}}"
                                                             name='skill_name' type="text" placeholder="Enter a skillset"
                                                             class="form-control">
                                                     </div>
@@ -197,7 +198,7 @@
                                                         <span class="w3-medium w3-text-gray">Rate your proficiency in
                                                             this skill on a scale of 1 - 100%</span>
                                                         <select name='level' class="form-control w3-margin-bottom"
-                                                            id="level">
+                                                            id="level{{$skill->id}}">
                                                             <option>{{ $skill->level }}</option>
                                                             <option>10%</option>
                                                             <option>20%</option>
@@ -210,7 +211,7 @@
                                                             <option>90%</option>
                                                             <option>100%</option>
                                                         </select>
-                                                        <button type="submit" onsubmit="updatePage()" class="btn btn-primary">Save</button>
+                                                        <button type="submit" data-id={{$skill->id}} class="btn btn-primary updateSkills">Save</button>
 
                                                     </div>
                                                 </div>
@@ -543,3 +544,5 @@
     <h1>Login</h1>
 @endif
 @endsection
+
+{{-- action="{{ action('GenerateCvController@updateSkills', $skill->id) }}" --}}

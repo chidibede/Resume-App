@@ -9,9 +9,10 @@ $(document).ready(function(){
       });
    
     // start of click event listener for updating profession
-    $('#profession-btn').click(function(e){
+    $('#profession').on('submit', function(e){
 
         const route = $('#profession').data('route');
+        var frm_serialized = $(this).serialize();
         e.preventDefault();
 
         $.ajaxSetup({
@@ -24,7 +25,7 @@ $(document).ready(function(){
 
             url: route,
             type:  'POST',
-            data: {profession: $('#profession-input').val()},
+            data: frm_serialized,
             success: function(result) {
                
                 $('#profession-alert').html(result.success).fadeIn(1000).fadeOut(2000);
@@ -37,9 +38,10 @@ $(document).ready(function(){
 
 
     // start of click event listener for updating location
-    $('#location-btn').click(function(e){
+    $('#location').on('submit', function(e){
 
         const route = $('#location').data('route');
+        var frm_serialized = $(this).serialize();
         e.preventDefault();
 
         $.ajaxSetup({
@@ -52,7 +54,7 @@ $(document).ready(function(){
 
             url: route,
             type:  'POST',
-            data: {location: $('#location-input').val(), nationality: $('#nationality-input').val() },
+            data: frm_serialized,
             success: function(result) {
                
               
@@ -67,9 +69,10 @@ $(document).ready(function(){
 
 
     // start of click event listener for updating Email
-    $('#email-btn').click(function(e){
+    $('#email').on('submit', function(e){
 
         const route = $('#email').data('route');
+        frm_serialized = $(this).serialize();
         e.preventDefault();
 
         $.ajaxSetup({
@@ -82,7 +85,7 @@ $(document).ready(function(){
 
             url: route,
             type:  'POST',
-            data: {email: $('#email-input').val() },
+            data: frm_serialized,
             success: function(result) {
                
               
@@ -95,9 +98,10 @@ $(document).ready(function(){
     // end of click event listener for updating Email
 
        // start of click event listener for updating phone number
-       $('#phone-btn').click(function(e){
+       $('#phone').on('submit',function(e){
 
         const route = $('#phone').data('route');
+        var frm_serialized = $(this).serialize();
         e.preventDefault();
 
         $.ajaxSetup({
@@ -110,7 +114,7 @@ $(document).ready(function(){
 
             url: route,
             type:  'POST',
-            data: {phone: $('#phone-input').val() },
+            data: frm_serialized,
             success: function(result) {
                
               
@@ -128,6 +132,7 @@ $(document).ready(function(){
 
         const route = $('#skills').data('route');
         frm_serialized = $(this).serialize();
+        var div=$('#skill-list').html();
         e.preventDefault();
 
         $.ajaxSetup({
@@ -145,7 +150,7 @@ $(document).ready(function(){
                
                 $('#skills-alert').html(result.success).fadeIn(800).fadeOut(2000);
                 $("#skills")[0].reset();
-                $( "#skill-list" ).load(window.location.href + " #skill-list" );
+                $("#skill-list").load(" #skill-list > *")
             }
         });
 
@@ -153,4 +158,34 @@ $(document).ready(function(){
     // end of click event listener for updating skills
     
 
+    $(".updateSkills").on('click', function(e) {
+        e.preventDefault();
+        var id = $(this).attr("data-id");
+        skill_name_id = '#skill_name'+id;
+        level_id = '#level'+id;
+        skill_id_id = '#skill_id'+id
+        var skill_name = $(skill_name_id).val();
+        var skill_id = $(skill_id_id).val();
+        var level = $(level_id).val();
+        var data = {skill_name: skill_name, level: level, skill_id: skill_id};
+        const route = $('#skills-'+ id).data('route');
+        frm_serialized = $('#skills-'+id).serialize();
+
+
+        $.ajax({
+            url: route,
+            type:  'POST',
+            dataType: 'json',
+            data: frm_serialized,
+            success: function(result) {
+            
+                $('#skills-edit-alert').html(result.success).fadeIn(800).fadeOut(2000);
+                $("#skill-list").load(" #skill-list > *");
+                console.log(data);
+            }
+        });
+
+    });
+
+    
 });
