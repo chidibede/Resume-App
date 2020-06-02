@@ -7,6 +7,7 @@ use App\Skill;
 use App\Language;
 use App\Currentjob;
 use App\Work;
+use App\Education;
 
 class GenerateCvController extends Controller
 {
@@ -24,6 +25,7 @@ class GenerateCvController extends Controller
         $languages = Language::where('user_id', '=', $user->id)->get();
         $current_jobs = Currentjob::where('user_id', '=', $user->id)->get();
         $former_jobs = Work::where('user_id', '=', $user->id)->get();
+        $educations = Education::where('user_id', '=', $user->id)->get();
 
         // This variable controls the visibility of current job form
         $currentJobRowCount = $current_jobs->count();
@@ -34,6 +36,7 @@ class GenerateCvController extends Controller
             'languages' => $languages,
             'current_jobs' => $current_jobs,
             'former_jobs' => $former_jobs,
+            'educations' => $educations,
             'currentJobRowCount' => $currentJobRowCount,
             'user'=> $user
         ];
@@ -184,5 +187,36 @@ class GenerateCvController extends Controller
             return response()->json(['success'=> 'Former Job updated']);
         
     }
+
+
+       // Education Controller
+       public function createEducation(Request $request) {
+
+        $education = new Education();
+        $education->school = $request->get('school');
+        $education->user_id = auth()->user()->id;
+        $education->location = $request->get('location');
+        $education->start_date = $request->get('start_date');
+        $education->end_date = $request->get('end_date');
+        $education->certificate = $request->get('certificate');
+        $education->save();
+
+        return response()->json(['success'=> 'Education Job updated']);
+    }
+
+    public function updateEducation(Request $request, $id) {
+
+        $education = Education::find($id);
+        $education->school = $request->get('school');
+        $education->user_id = auth()->user()->id;
+        $education->location = $request->get('location');
+        $education->start_date = $request->get('start_date');
+        $education->end_date = $request->get('end_date');
+        $education->certificate = $request->get('certificate');
+        $education->save();
+
+        return response()->json(['success'=> 'Education Job updated']);
+    
+}
    
 }

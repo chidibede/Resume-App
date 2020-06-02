@@ -1,7 +1,7 @@
 <h2 class="w3-text-grey w3-padding-18 w3-center"><i
         class="fa fa-suitcase fa-fw w3-margin-right w3-margin-top w3-xxlarge w3-text-blue"></i>Work
     Experience</h2>
-<p class="w3-text-grey w3-padding-18 ml-4"><i
+<p class="w3-text-grey w3-padding-18 ml-3"><i
         class="fa fa-suitcase fa-fw w3-margin-right w3-margin-top w3-text-blue"></i>Current Employment
 </p>
 <div class="w3-container">
@@ -131,7 +131,7 @@
 
 {{-- Former employments Editing --}}
 <div class="w3-container w3-margin-bottom">
-    <p class="w3-text-grey w3-padding-18 ml-4"><i
+    <p class="w3-text-grey w3-padding-18 "><i
             class="fa fa-suitcase fa-fw w3-margin-right w3-margin-top w3-text-blue"></i>Former Employments
     </p>
 
@@ -240,7 +240,7 @@
             </div>
 
             <div class="form-group">
-                <input type="text" name="location" id="job_title" placeholder="Job Location" class="form-control"
+                <input type="text" name="location" id="location" placeholder="Job Location" class="form-control"
                     required>
             </div>
 

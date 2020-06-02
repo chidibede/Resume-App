@@ -396,4 +396,69 @@ $(document).ready(function(){
     // end of event listener for updating Current Job
     
     
+    // start of click event listener for adding Education
+    $('#education').on('submit', function(e){
+
+        const route = $('#education').data('route');
+        frm_serialized = $(this).serialize();
+        $('#education-alert').html('loading...');
+        e.preventDefault();
+
+       
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+
+            url: route,
+            type:  'POST',
+            data: frm_serialized,
+            success: function(result) {
+               
+                $('#education-alert').html(result.success).fadeIn(800).fadeOut(2000);
+                $("#education")[0].reset();
+                $("#education-list").load(" #education-list > *");
+                
+            }
+        });
+
+    });
+    // end of click event listener for adding Education
+
+
+    
+    // start of event listener for updating Education
+    $("body").on('click', '.updateEducation', function(e) {
+        e.preventDefault();
+        var id = $(this).attr("data-id");
+        const route = $('#education-'+ id).data('route');
+        frm_serialized = $('#education-'+id).serialize();
+        $('#education-edit-alert').html('loading...');
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+
+        $.ajax({
+            url: route,
+            type:  'POST',
+            dataType: 'json',
+            data: frm_serialized,
+            success: function(result) {
+            
+                $('#education-edit-alert').html(result.success).fadeIn(800).fadeOut(2000);
+                $("#education-list").load(" #education-list > *");
+
+               
+            }
+        });
+
+    });
+    // end of event listener for updating Education
 });
