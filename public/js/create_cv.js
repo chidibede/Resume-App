@@ -167,13 +167,6 @@ $(document).ready(function(){
     $("body").on('click', '.updateSkills', function(e) {
         e.preventDefault();
         var id = $(this).attr("data-id");
-        skill_name_id = '#skill_name'+id;
-        level_id = '#level'+id;
-        skill_id_id = '#skill_id'+id
-        var skill_name = $(skill_name_id).val();
-        var skill_id = $(skill_id_id).val();
-        var level = $(level_id).val();
-        var data = {skill_name: skill_name, level: level, skill_id: skill_id};
         const route = $('#skills-'+ id).data('route');
         frm_serialized = $('#skills-'+id).serialize();
         $('#skills-edit-alert').html('loading...');
@@ -238,13 +231,6 @@ $(document).ready(function(){
     $("body").on('click', '.updateLanguages', function(e) {
         e.preventDefault();
         var id = $(this).attr("data-id");
-        // language_name_id = '#language_name'+id;
-        // level_id = '#level'+id;
-        // language_id_id = '#language_id'+id
-        // var language_name = $(language_name_id).val();
-        // var language_id = $(language_id_id).val();
-        // var level = $(level_id).val();
-        // var data = {language_name: language_name, level: level, language_id: language_id};
         const route = $('#languages-'+ id).data('route');
         frm_serialized = $('#languages-'+id).serialize();
         $('#languages-edit-alert').html('loading...');
@@ -282,7 +268,7 @@ $(document).ready(function(){
         frm_serialized = $(this).serialize();
         $('#current-job-alert').html('loading...');
         e.preventDefault();
-        console.log(route)
+
 
        
         $.ajaxSetup({
@@ -314,13 +300,6 @@ $(document).ready(function(){
     $("body").on('click', '.updateCurrentJob', function(e) {
         e.preventDefault();
         var id = $(this).attr("data-id");
-        // language_name_id = '#language_name'+id;
-        // level_id = '#level'+id;
-        // language_id_id = '#language_id'+id
-        // var language_name = $(language_name_id).val();
-        // var language_id = $(language_id_id).val();
-        // var level = $(level_id).val();
-        // var data = {language_name: language_name, level: level, language_id: language_id};
         const route = $('#current_job-'+ id).data('route');
         frm_serialized = $('#current_job-'+id).serialize();
         $('#current-job-edit-alert').html('loading...');
@@ -341,6 +320,73 @@ $(document).ready(function(){
             
                 $('#current-job-edit-alert').html(result.success).fadeIn(800).fadeOut(2000);
                 $("#current-job-list").load(" #current-job-list > *");
+
+               
+            }
+        });
+
+    });
+    // end of event listener for updating Current Job
+
+
+     // start of click event listener for adding former job
+     $('#former_employment').on('submit', function(e){
+
+        const route = $('#former_employment').data('route');
+        frm_serialized = $(this).serialize();
+        $('#former-job-alert').html('loading...');
+        e.preventDefault();
+
+       
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+
+            url: route,
+            type:  'POST',
+            data: frm_serialized,
+            success: function(result) {
+               
+                $('#former-job-alert').html(result.success).fadeIn(800).fadeOut(2000);
+                $("#former_employment")[0].reset();
+                $("#former-job-list").load(" #former-job-list > *");
+                
+            }
+        });
+
+    });
+    // end of click event listener for adding former job
+
+
+    
+    // start of event listener for updating Former Job
+    $("body").on('click', '.updateFormerJobs', function(e) {
+        e.preventDefault();
+        var id = $(this).attr("data-id");
+        const route = $('#former_job-'+ id).data('route');
+        frm_serialized = $('#former_job-'+id).serialize();
+        $('#former-job-edit-alert').html('loading...');
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+
+        $.ajax({
+            url: route,
+            type:  'POST',
+            dataType: 'json',
+            data: frm_serialized,
+            success: function(result) {
+            
+                $('#former-job-edit-alert').html(result.success).fadeIn(800).fadeOut(2000);
+                $("#former-job-list").load(" #former-job-list > *");
 
                
             }
