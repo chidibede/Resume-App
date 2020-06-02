@@ -72,7 +72,7 @@
         {{-- Current Job Table/Info --}}
         @foreach($currentjobs as $currentjob)
           <div class="w3-container">
-            <h5 class="w3-opacity"><b>{{ $currentjob->name}}/{{ $currentjob->firm}}/{{ $currentjob->location}}</b></h5>
+            <h5 class="w3-opacity"><b>{{ $currentjob->job_title}}/{{ $currentjob->employer}}/{{ $currentjob->location}}</b></h5>
             <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $currentjob->start_date}} - <span class="w3-tag w3-blue w3-round">{{ $currentjob->end_date}}</span></h6>
             <p>{{ $currentjob->job_description}}</p>
             <hr>

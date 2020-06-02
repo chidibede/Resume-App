@@ -450,7 +450,7 @@
 
                                                 <div class="form-group">
                                                     <span class="w3-medium w3-text-gray">Job Description</span>
-                                                    <textarea name="job_description" class="form-control" rows="4" id="comment{{$current_job->id}}" value="{{$current_job->job_description}}"></textarea>
+                                                    <textarea name="job_description" class="form-control" rows="4" id="comment{{$current_job->id}}" >{{$current_job->job_description}}</textarea>
                                                 </div>
                                                 <div class="form-group" style="width:50%;">
                                                     <span class="w3-medium w3-text-gray">Start Date</span>
