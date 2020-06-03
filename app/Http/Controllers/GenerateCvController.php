@@ -94,7 +94,9 @@ class GenerateCvController extends Controller
         $skill = new Skill();
         $skill->skill_name = $request->get('skill_name');
         $skill->user_id = auth()->user()->id;
-        $skill->level = $request->get('level');
+        $skill_level = $request->get('level');
+        $skill_level = str_replace('%', '', $skill_level);
+        $skill->level = $skill_level;
         $skill->save ();
 
         return response()->json(['success'=> 'Skills updated']);
@@ -105,7 +107,9 @@ class GenerateCvController extends Controller
 
         $skill = Skill::find($id);
         $skill->skill_name = $request->get('skill_name');
-        $skill->level = $request->get('level');
+        $skill_level = $request->get('level');
+        $skill_level = str_replace('%', '', $skill_level);
+        $skill->level = $skill_level;
         $skill->save ();
         return response()->json(['success'=> 'Skills updated']);
        
@@ -117,7 +121,9 @@ class GenerateCvController extends Controller
         $language = new Language();
         $language->language_name = $request->get('language_name');
         $language->user_id = auth()->user()->id;
-        $language->level = $request->get('level');
+        $language_level = $request->get('level');
+        $language_level = str_replace('%', '', $language_level);
+        $language->level = $language_level;
         $language->save ();
         // return redirect('/generate_cv')->with('success', '  updated successfully');
         return response()->json(['success'=> 'Language updated']);
@@ -128,7 +134,10 @@ class GenerateCvController extends Controller
 
             $language = Language::find($id);
             $language->language_name = $request->get('language_name');
-            $language->level = $request->get('level');
+            $language_level = $request->get('level');
+            $language_level = str_replace('%', '', $language_level);
+            $language->level = $language_level;
+
             $language->save ();
             return response()->json(['success'=> 'Language updated']);
         

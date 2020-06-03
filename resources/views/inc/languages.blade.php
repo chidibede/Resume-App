@@ -37,7 +37,7 @@
                                     this language on a scale of 1 - 100%</span>
                                 <select name='level' class="form-control w3-margin-bottom"
                                     id="level{{ $language->id }}">
-                                    <option>{{ $language->level }}</option>
+                                    <option>{{ $language->level }}%</option>
                                     <option>10%</option>
                                     <option>20%</option>
                                     <option>30%</option>

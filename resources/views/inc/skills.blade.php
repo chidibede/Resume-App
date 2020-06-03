@@ -35,7 +35,7 @@
                                 <span class="w3-medium w3-text-gray">Rate your proficiency in
                                     this skill on a scale of 1 - 100%</span>
                                 <select name='level' class="form-control w3-margin-bottom" id="level{{ $skill->id }}">
-                                    <option>{{ $skill->level }}</option>
+                                    <option>{{ $skill->level }}%</option>
                                     <option>10%</option>
                                     <option>20%</option>
                                     <option>30%</option>
