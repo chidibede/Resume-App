@@ -593,6 +593,6 @@ $("body").on('click', '.updateProject', function(e) {
 
 });
 // end of event listener for updating project 
-
+        
 
 });

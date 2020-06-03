@@ -20,6 +20,9 @@
                     </td>
 
                     <td>
+                        <a onclick="return confirm('Are you sure?')" href="{{ route('destroyVolunteer', ['id' => $volunteer->id]) }}"  class="span">
+                            <i class="fa fa-trash fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
+
                         <a data-toggle="collapse" href="#volunteer-{{ $volunteer->id }}" role="button"
                             aria-expanded="false" aria-controls="volunteer-{{ $volunteer->id }}" class="span">
                             <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>

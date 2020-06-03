@@ -1,7 +1,10 @@
 @extends('layouts.all')
 
 @section('content')
-@include('inc.messages')
+<div class="mt-3">
+    @include('inc.messages')
+</div>
+
 @if($user)
 
     <body class="w3-light-grey">
@@ -74,6 +77,7 @@
         <script src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
         <script src="{{ asset('js/create_cv.js') }}"></script>
+        <script src="{{ asset('js/delete_cv.js') }}"></script>
     </body>
 @else
     <h1>Login</h1>

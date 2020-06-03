@@ -20,6 +20,9 @@
                     </td>
 
                     <td>
+                        <a onclick="return confirm('Are you sure?')" href="{{ route('destroyCurrentJob', ['id' => $current_job->id]) }}"  class="span">
+                            <i class="fa fa-trash fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
+
                         <a data-toggle="collapse" href="#current_job-{{ $current_job->id }}" role="button"
                             aria-expanded="false" aria-controls="current_job-{{ $current_job->id }}" class="span">
                             <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
@@ -149,6 +152,9 @@
                     </td>
 
                     <td>
+                        <a onclick="return confirm('Are you sure?')" href="{{ route('destroyFormerJob', ['id' => $former_job->id]) }}"  class="span">
+                            <i class="fa fa-trash fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
+
                         <a data-toggle="collapse" href="#former_job-{{ $former_job->id }}" role="button"
                             aria-expanded="false" aria-controls="former_job-{{ $former_job->id }}" class="span">
                             <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>

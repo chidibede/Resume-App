@@ -13,6 +13,9 @@
                 </td>
 
                 <td>
+                    <a onclick="return confirm('Are you sure?')" href="{{ route('destroySkill', ['id' => $skill->id]) }}"  class="span">
+                        <i class="fa fa-trash fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
+
                     <a data-toggle="collapse" href="#skills-{{ $skill->id }}" role="button" aria-expanded="false"
                         aria-controls="skills-{{ $skill->id }}" class="span">
                         <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>

@@ -22,11 +22,13 @@
                     </td>
 
                     <td>
-                        <a data-toggle="collapse" href="#project-{{ $project->id }}" role="button"
-                            aria-expanded="false" aria-controls="project-{{ $project->id }}" class="span">
-                            <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
+                        <a onclick="return confirm('Are you sure?')" href="{{ route('destroyProject', ['id' => $project->id]) }}"  class="span">
+                            <i class="fa fa-trash fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
+                            
 
-
+                            <a data-toggle="collapse" href="#project-{{ $project->id }}" role="button"
+                                aria-expanded="false" aria-controls="project-{{ $project->id }}" class="span">
+                                <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>     
 
                         <!-- project Editing Form -->
                         <form method="POST"
@@ -100,3 +102,4 @@
     </form>
     <hr>
 </div>
+

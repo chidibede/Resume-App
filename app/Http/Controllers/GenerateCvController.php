@@ -292,5 +292,48 @@ class GenerateCvController extends Controller
 
     
     }
+
+
+    public function destroyProject($id){
+         //For Deleting Project
+         Project::find($id)->delete();
+        return redirect('/generate_cv')->with('success','Project deleted successfully');
+    }
+
+    public function destroyEducation($id){
+        //For Deleting Education
+        Education::find($id)->delete();
+       return redirect('/generate_cv')->with('success','Education deleted successfully');
+   }
+
+   public function destroyVolunteer($id){
+    //For Deleting Volunteer Job
+        Volunteer::find($id)->delete();
+        return redirect('/generate_cv')->with('success','Volunteer deleted successfully');
+    }
+
+    public function destroyFormerJob($id){
+        //For Deleting Former Employment
+        Work::find($id)->delete();
+        return redirect('/generate_cv')->with('success','Job deleted successfully');
+    }
+
+    public function destroyCurrentJob($id){
+        //For Deleting Current Employment
+        Currentjob::find($id)->delete();
+       return redirect('/generate_cv')->with('success','Job deleted successfully');
+    }
+
+    public function destroySkill($id){
+        //For Deleting Skill
+        Skill::find($id)->delete();
+       return redirect('/generate_cv')->with('success','Skill deleted successfully');
+    }
+
+    public function destroyLanguage($id){
+        //For Deleting Language
+        Language::find($id)->delete();
+       return redirect('/generate_cv')->with('success','Language deleted successfully');
+    }
    
 }
