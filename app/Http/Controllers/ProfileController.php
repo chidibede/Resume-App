@@ -54,6 +54,8 @@ class ProfileController extends Controller
         $user->email = $request->input('email');
         $user->website = $request->input('website');
         $user->linkedin = $request->input('linkedin');
+        $user->twitter = $request->input('twitter');
+        $user->facebook = $request->input('facebook');
     
         // Save the Updated User Profile
         $user->save();

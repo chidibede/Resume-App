@@ -55,6 +55,17 @@
                                 
                             </p>
 
+                            <p>
+                                {{ Form::label('facebook', 'Facebook', ['class' =>  'w3-text-blue', ]) }}
+                                {{ Form::text('facebook', $user->facebook, [ 'class' =>  'w3-input', ]) }}
+                                
+                            </p>
+
+                            <p>
+                                {{ Form::label('twitter', 'Twitter', ['class' =>  'w3-text-blue', ]) }}
+                                {{ Form::text('twitter', $user->twitter, [ 'class' =>  'w3-input', ]) }}
+                                
+                            </p>
                             
                 
                             {{-- <p>
