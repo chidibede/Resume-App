@@ -53,3 +53,11 @@ Route::patch('/updateFormerJobs/{id}', 'GenerateCvController@updateFormerJobs')-
 // Education Routes
 Route::post('/createEducation', 'GenerateCvController@createEducation')->name('createEducation');
 Route::patch('/updateEducation/{id}', 'GenerateCvController@updateEducation')->name('updateEducation');
+
+// Volunteer Routes
+Route::post('/createVolunteer', 'GenerateCvController@createVolunteer')->name('createVolunteer');
+Route::patch('/updateVolunteers/{id}', 'GenerateCvController@updateVolunteers')->name('updateVolunteers');
+
+// Project Routes
+Route::post('/createProject', 'GenerateCvController@createProject')->name('createProject');
+Route::patch('/updateProject/{id}', 'GenerateCvController@updateProject')->name('updateProject');

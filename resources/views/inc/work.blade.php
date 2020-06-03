@@ -105,7 +105,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="text" name="location" id="job_title" placeholder="Job Location" class="form-control"
+                    <input type="text" name="location" id="location" placeholder="Job Location" class="form-control"
                         required>
                 </div>
 

@@ -1,7 +1,76 @@
 <h2 class="w3-text-grey w3-padding-14"><i
         class="fa fa-cogs fa-fw w3-margin-right w3-margin-top w3-xxlarge w3-text-blue"></i>Ongoing
     And Completed Projects</h2>
+
+    <p class="w3-text-grey w3-padding-18 ml-3"><i
+        class="fa fa-cogs  fa-fw w3-margin-right w3-margin-top w3-text-blue"></i> Projects
+</p>
+
 <div class="w3-container">
+
+    <p id="project-edit-alert" class="alert alert-success" style="display:none"></p>
+
+    <table class="table" id="project-list">
+
+        <tbody>
+            @foreach($projects as $project)
+                <tr>
+                    <td>
+                        <p class="text-primary">
+                            {{ $project->name }}
+                        </p>
+                    </td>
+
+                    <td>
+                        <a data-toggle="collapse" href="#project-{{ $project->id }}" role="button"
+                            aria-expanded="false" aria-controls="project-{{ $project->id }}" class="span">
+                            <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
+
+
+
+                        <!-- project Editing Form -->
+                        <form method="POST"
+                            data-route="{{ url('updateProject', $project->id) }}"
+                            class="collapse" id="project-{{ $project->id }}">
+                            <input type="hidden" name="_method" value="PATCH">
+                            @csrf
+                            <input type="hidden" name="project_id" id="project_id{{ $project->id }}"
+                                value="{{ $project->id }}">
+                            <div class="card" style="border: none;">
+                                <div class="form-group">
+                                    <input type="text" name="name" id="name{{ $project->id }}"
+                                        placeholder="Project Name" class="form-control w3-margin-bottom"
+                                        value="{{ $project->name }}">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="link" id="link{{ $project->id }}"
+                                        placeholder="Project Link" class="form-control"
+                                        value="{{ $project->link }}">
+                                </div>
+
+                                <div class="form-group">
+                                    <span class="w3-medium w3-text-gray">Project Description</span>
+                                    <textarea name="description" class="form-control" rows="4"
+                                        id="description{{ $project->id }}">{{ $project->description }}</textarea>
+                                </div>
+                        
+
+                                <div class="form-group">
+                                    <button type="button" data-id={{ $project->id }}
+                                        class="btn btn-primary updateProject">Save</button>
+                                </div>
+                                <hr><br>
+
+                            </div>
+                        </form>
+                        <!-- End Of project editing Form -->
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+
+    
     <p>
         <span data-toggle="collapse" href="#projects" role="button" aria-expanded="false" aria-controls="projects"
             class="span">
@@ -9,27 +78,25 @@
             <i class="fa fa-plus-circle fa-fw w3-margin-right w3-right w3-xlarge w3-text-blue"></i>
         </span>
     </p>
-    <div class="collapse" id="projects">
+
+    <p class="alert alert-success" id="project-alert" style="display:none"></p>
+    <form class="collapse" id="projects" method="POST" data-route="{{ route('createProject') }}">
+        @csrf
         <div class="card" style="border: none;">
             <div class="form-group">
-                <input type="text" placeholder="Project Title" class="form-control w3-margin-bottom">
+                <input type="text" name='name' id='name' placeholder="Project Title" class="form-control w3-margin-bottom">
+            </div>
+            <div class="form-group">
+                <input type="text" name='link' id='link' placeholder="Project link" class="form-control w3-margin-bottom">
             </div>
             <div class="form-group">
                 <span class="w3-medium w3-text-gray">Project Description</span>
-                <textarea class="form-control" rows="4" id="comment"></textarea>
-            </div>
-            <div class="form-group" style="width:50%;">
-                <span class="w3-medium w3-text-gray">Start Date</span>
-                <input type="date" id="start date" name="date" class="form-control">
-            </div>
-            <div class="form-group" style="width:50%;">
-                <span class="w3-medium w3-text-gray">Completion Date</span>
-                <input type="date" id="start date" name="date" class="form-control">
+                <textarea name='description' class="form-control" rows="4" id="description"></textarea>
             </div>
             <div class="form-group">
-                <a href="#" class="btn btn-primary">Save</a>
+                <button type="submit" class="btn btn-primary" id="project-btn">Save</button>
             </div>
         </div>
-    </div>
+    </form>
     <hr>
 </div>

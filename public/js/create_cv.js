@@ -461,4 +461,138 @@ $(document).ready(function(){
 
     });
     // end of event listener for updating Education
+
+    // start of click event listener for adding former job
+    $('#volunteer').on('submit', function(e){
+
+        const route = $('#volunteer').data('route');
+        frm_serialized = $(this).serialize();
+        $('#volunteer-alert').html('loading...');
+        e.preventDefault();
+
+       
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+
+            url: route,
+            type:  'POST',
+            data: frm_serialized,
+            success: function(result) {
+               
+                $('#volunteer-alert').html(result.success).fadeIn(800).fadeOut(2000);
+                $("#volunteer")[0].reset();
+                $("#volunteer-list").load(" #volunteer-list > *");
+                
+            }
+        });
+
+    });
+    // end of click event listener for adding volunteer
+
+
+    
+    // start of event listener for updating volunteer
+    $("body").on('click', '.updateVolunteer', function(e) {
+        e.preventDefault();
+        var id = $(this).attr("data-id");
+        const route = $('#volunteer-'+ id).data('route');
+        frm_serialized = $('#volunteer-'+id).serialize();
+        $('#volunteer-edit-alert').html('loading...');
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+
+        $.ajax({
+            url: route,
+            type:  'POST',
+            dataType: 'json',
+            data: frm_serialized,
+            success: function(result) {
+            
+                $('#volunteer-edit-alert').html(result.success).fadeIn(800).fadeOut(2000);
+                $("#volunteer-list").load(" #volunteer-list > *");
+
+               
+            }
+        });
+
+    });
+    // end of event listener for updating Volunteer Job
+
+    // start of click event listener for adding former job
+$('#projects').on('submit', function(e){
+
+    const route = $('#projects').data('route');
+    frm_serialized = $(this).serialize();
+    $('#project-alert').html('loading...');
+    e.preventDefault();
+
+   
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+
+        url: route,
+        type:  'POST',
+        data: frm_serialized,
+        success: function(result) {
+           
+            $('#project-alert').html(result.success).fadeIn(800).fadeOut(2000);
+            $("#projects")[0].reset();
+            $("#project-list").load(" #project-list > *");
+            
+        }
+    });
+
+});
+// end of click event listener for adding project
+
+
+
+// start of event listener for updating project
+$("body").on('click', '.updateProject', function(e) {
+    e.preventDefault();
+    var id = $(this).attr("data-id");
+    const route = $('#project-'+ id).data('route');
+    frm_serialized = $('#project-'+id).serialize();
+    $('#project-edit-alert').html('loading...');
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+
+    $.ajax({
+        url: route,
+        type:  'POST',
+        dataType: 'json',
+        data: frm_serialized,
+        success: function(result) {
+        
+            $('#project-edit-alert').html(result.success).fadeIn(800).fadeOut(2000);
+            $("#project-list").load(" #project-list > *");
+
+           
+        }
+    });
+
+});
+// end of event listener for updating project 
+
+
 });

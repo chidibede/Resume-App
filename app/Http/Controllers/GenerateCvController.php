@@ -8,6 +8,8 @@ use App\Language;
 use App\Currentjob;
 use App\Work;
 use App\Education;
+use App\Volunteer;
+use App\Project;
 
 class GenerateCvController extends Controller
 {
@@ -26,6 +28,8 @@ class GenerateCvController extends Controller
         $current_jobs = Currentjob::where('user_id', '=', $user->id)->get();
         $former_jobs = Work::where('user_id', '=', $user->id)->get();
         $educations = Education::where('user_id', '=', $user->id)->get();
+        $volunteers = Volunteer::where('user_id', '=', $user->id)->get();
+        $projects = Project::where('user_id', '=', $user->id)->get();
 
         // This variable controls the visibility of current job form
         $currentJobRowCount = $current_jobs->count();
@@ -37,6 +41,8 @@ class GenerateCvController extends Controller
             'current_jobs' => $current_jobs,
             'former_jobs' => $former_jobs,
             'educations' => $educations,
+            'volunteers' => $volunteers,
+            'projects' => $projects,
             'currentJobRowCount' => $currentJobRowCount,
             'user'=> $user
         ];
@@ -218,5 +224,64 @@ class GenerateCvController extends Controller
         return response()->json(['success'=> 'Education Job updated']);
     
 }
+
+    // Volunteer
+    // Volunteer Jobs Controller
+    public function createVolunteer(Request $request) {
+
+        $volunteer = new Volunteer();
+        $volunteer->job_title = $request->get('job_title');
+        $volunteer->user_id = auth()->user()->id;
+        $volunteer->organization = $request->get('organization');
+        $volunteer->location = $request->get('location');
+        $volunteer->start_date = $request->get('start_date');
+        $volunteer->end_date = $request->get('end_date');
+        $volunteer->job_description = $request->get('job_description');
+        $volunteer->save();
+
+        return response()->json(['success'=> 'Volunteer Job updated']);
+    }
+
+    public function updateVolunteers(Request $request, $id) {
+
+        $volunteer = Volunteer::find($id);
+        $volunteer->job_title = $request->get('job_title');
+        $volunteer->organization = $request->get('organization');
+        $volunteer->location = $request->get('location');
+        $volunteer->start_date = $request->get('start_date');
+        $volunteer->end_date = $request->get('end_date');
+        $volunteer->job_description = $request->get('job_description');
+        $volunteer->save();
+
+        return response()->json(['success'=> 'Volunteer Job updated']);
+
+    
+    }
+
+     // Project Controller
+     public function createProject(Request $request) {
+
+        $project = new Project();
+        $project->user_id = auth()->user()->id;
+        $project->link = $request->get('link');
+        $project->name = $request->get('name');
+        $project->description = $request->get('description');
+        $project->save();
+
+        return response()->json(['success'=> 'Projects updated']);
+    }
+
+    public function updateProject(Request $request, $id) {
+
+        $project = Project::find($id);
+        $project->link = $request->get('link');
+        $project->name = $request->get('name');
+        $project->description = $request->get('description');
+        $project->save();
+
+        return response()->json(['success'=> 'Projects updated']);
+
+    
+    }
    
 }
