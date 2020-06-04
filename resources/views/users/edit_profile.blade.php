@@ -68,7 +68,7 @@
                             </p>
 
                             <p>
-                                {{ Form::label('profile_pics', 'Profile Pics', ['class' =>  'w3-text-blue', ]) }}
+                                {{ Form::label('profile_pics', 'Profile Picture', ['class' =>  'w3-text-blue', ]) }}
                                 {{ Form::file('profile_pics') }}
                             </p>
                         
