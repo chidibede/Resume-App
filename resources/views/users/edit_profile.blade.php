@@ -66,11 +66,12 @@
                                 {{ Form::text('twitter', $user->twitter, [ 'class' =>  'w3-input', ]) }}
                                 
                             </p>
-                            
-                
-                            {{-- <p>
-                                {{ Form::file('cover_image') }}
-                            </p> --}}
+
+                            <p>
+                                {{ Form::label('profile_pics', 'Profile Pics', ['class' =>  'w3-text-blue', ]) }}
+                                {{ Form::file('profile_pics') }}
+                            </p>
+                        
                 
                             <p>
                                 {{ Form::hidden('_method', 'PUT')}}

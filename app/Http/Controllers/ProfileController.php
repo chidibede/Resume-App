@@ -45,7 +45,18 @@ class ProfileController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required',
+            'profile_pics' => 'image|nullable|max:1999'
         ]);
+
+         // validate the image
+         if($request->hasFile('profile_pics')){
+            $fileNameExt = $request->file('profile_pics')->getClientOriginalName();
+            $fileName = pathinfo($fileNameExt, PATHINFO_FILENAME);
+            $fileExtension = $request->file('profile_pics')->getClientOriginalExtension();
+            $fileNameToStore = $fileName."_".time().".".$fileExtension;
+            $path = $request->file('profile_pics')->storeAs('public/profile_pics', $fileNameToStore);
+
+        }
       
         // store the form values in a database
         $user = auth()->user();
@@ -56,6 +67,9 @@ class ProfileController extends Controller
         $user->linkedin = $request->input('linkedin');
         $user->twitter = $request->input('twitter');
         $user->facebook = $request->input('facebook');
+        if($request->hasFile('profile_pics')){
+            $user->profile_pics = $fileNameToStore;
+        }
     
         // Save the Updated User Profile
         $user->save();
@@ -63,4 +77,6 @@ class ProfileController extends Controller
         
         
     }
+
+    
 }

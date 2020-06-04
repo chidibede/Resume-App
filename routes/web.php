@@ -25,6 +25,7 @@ Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::get('/profile/edit', 'ProfileController@edit');
 Route::put('/profile/update', 'ProfileController@update');
 
+
 // Generate CV view Routes
 Route::get('/generate_cv', 'GenerateCvController@generate_cv');
 
