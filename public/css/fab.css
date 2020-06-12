@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.fab-container{
+    position: sticky;
+    bottom: 6px;
+    margin-left: 100%;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.fab-icon-holder{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: #2d95da;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.fab-icon-holder:hover{
+    opacity: 0.8;
+}
+
+.fab-icon-holder i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 25px;
+    color: white;
+}
+
+.fab{
+    width: 60px;
+    height: 60px;
+    background: #d23f31;
+
+}
+
+.fab-options{
+    list-style-type: none;
+    margin: 0;
+    position: absolute;
+    bottom: 20px;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.fab:hover + .fab-options , .fab-options:hover{
+    opacity: 1;
+}
+
+.fab-options li{
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+    
+}
+
+#fab-download{
+    margin-bottom: 30px;
+}
+
+[aria-hidden="true"] {
+    opacity: 0;
+    position: absolute;
+    z-index: -9999;
+    pointer-events: none;
+  }
+
+
+@media screen and (max-width: 850px) {
+.fab-container{
+    position: sticky;
+    bottom: 22px;
+    margin-left: 89%;
+    cursor: pointer;
+}
+
+.fab-options li{
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+
+}
+
+.fab-options{
+    list-style-type: none;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+#fab-download{
+    margin-bottom: 50px;
+}    
+
+.fab:hover + .fab-options , .fab-options:hover{
+    opacity: 1;
+}
+}
+

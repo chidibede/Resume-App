@@ -19,7 +19,7 @@
       {{-- Getting data from users table --}} 
       <div class="w3-white w3-text-grey w3-card-4">
         <div class="w3-display-container">
-          <img src="/img/default.png"  height="400" style="width:100%" alt="Avatar">
+          <img src="/storage/profile_pics/{{$user->profile_pics}}"  height="400" style="width:100%" alt="Avatar">
           <div class="w3-display-bottomleft w3-container w3-text-black">
             <h3 style="background: #fafafa;">{{$user->name}}</h3>
           </div>
@@ -157,10 +157,43 @@
 </div>
 </div>
 
-@else
-<h1>Unauthorized to view page</h1>
-
 @endif
+
+@if(Auth::user())
+<div class="fab-container">
+  <div class="fab-icon-holder">
+      <i class="fa fa-angle-double-up"></i>
+  </div>
+
+  <ul class="fab-options">
+      <li >
+          <div class="fab-icon-holder" id='copy_icon'>
+              <i class="fa fa-clone" id="copy_url" onclick="copyToClipboard()"></i>
+              <input type="text" aria-hidden="true" value="{{ route('view_cv', $user->username) }}" id='cv_url' name="cv_url">
+          </div>
+      </li>
+      <li id="fab-download">
+          <div class="fab-icon-holder">
+              <a href="{{route('printcv', $user->username)}}"><i class="fa fa-download"></i></a>
+          </div>
+      </li>
+  </ul>
+</div>
+@endif
+
+<script>
+    function copyToClipboard() {
+    var textBox = document.getElementById("cv_url");
+    var copy_icon = document.getElementById("copy_icon");
+    textBox.select();
+    document.execCommand("copy");
+    copy_icon.innerHTML = '<i class="fa fa-check" ></i>'
+    
+}
+
+
+</script>
+
 </body>
 
 @endsection

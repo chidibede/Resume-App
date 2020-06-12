@@ -13,9 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// home page
 Route::get('/', 'PagesController@home');
-Route::get('/cv_view/{user}', 'PagesController@cv_view');
 
+// view cv page
+Route::get('/cv_view/{user}', 'PagesController@cv_view')->name('view_cv');
+
+// View CV Download pdf
+Route::get('/print-cv/{user}', 'PagesController@printPDF')->name('printcv');;
 
 
 Auth::routes();
@@ -69,3 +74,5 @@ Route::get('/destroyVolunteer/{id}', 'GenerateCvController@destroyVolunteer')->n
 Route::post('/createProject', 'GenerateCvController@createProject')->name('createProject');
 Route::patch('/updateProject/{id}', 'GenerateCvController@updateProject')->name('updateProject');
 Route::get('/destroyProject/{id}', 'GenerateCvController@destroyProject')->name('destroyProject');
+
+

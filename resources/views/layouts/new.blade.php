@@ -78,7 +78,7 @@ p {
        @endif
   @else
       <a href="/profile" class="w3-bar-item w3-button w3-padding-large w3-hover-light-gray">
-         <img src="/img/default.png" alt="Profile" width="80" height="80" style="border-radius: 40px;">
+         <img src="/storage/profile_pics/{{Auth::user()->profile_pics}}" alt="Profile" width="80" height="80" style="border-radius: 40px;">
         <p>{{ Auth::user()->name }} </p>
       </a>
 
