@@ -3,23 +3,20 @@
     </b></p>
 <p id="skills-edit-alert" class="alert alert-success" style="display:none"></p>
 {{-- Skills list --}}
-<table class="table" id="skill-list">
 
-    <tbody>
+<div id="skill-list">
         @foreach($skills as $skill)
-            <tr>
-                <td>
-                    <p class="text-primary">{{ $skill->skill_name }}</p>
-                </td>
-
-                <td>
-                    <a onclick="return confirm('Are you sure?')" href="{{ route('destroySkill', ['id' => $skill->id]) }}"  class="span">
-                        <i class="fa fa-trash fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
+            
+                <p class="text-primary">
+                    {{ $skill->skill_name }}
+         
+                    <a onclick="return confirm('Are you sure?')" href="{{ route('destroySkill', ['id' => $skill->id]) }}">
+                        <i class="fa fa-trash fa-fw w3-margin-right w3-right w3-large w3-text-blue"></i></a>
 
                     <a data-toggle="collapse" href="#skills-{{ $skill->id }}" role="button" aria-expanded="false"
-                        aria-controls="skills-{{ $skill->id }}" class="span">
-                        <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
-
+                        aria-controls="skills-{{ $skill->id }}">
+                        <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue"></i></a>
+                </p>
 
 
                     <!-- Skills Editing Form -->
@@ -57,11 +54,10 @@
                         </div>
                     </form>
                     <!-- End Of Skills editing Form -->
-                </td>
-            </tr>
+         
         @endforeach
-    </tbody>
-</table>
+  
+</div>
 
 <!-- End Of Skills Listing and Updating -->
 

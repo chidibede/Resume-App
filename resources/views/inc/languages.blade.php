@@ -2,23 +2,17 @@
 <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-blue"></i>Languages</b></p>
 <p id="languages-edit-alert" class="alert alert-success" style="display:none"></p>
 {{-- Languages list --}}
-<table class="table" id="languages-list">
+<div id="languages-list">
 
-    <tbody>
         @foreach($languages as $language)
-            <tr>
-                <td>
-                    <p class="text-primary">{{ $language->language_name }}</p>
-                </td>
-
-                <td>
+                <p class="text-primary">{{ $language->language_name }}
                     <a onclick="return confirm('Are you sure?')" href="{{ route('destroyLanguage', ['id' => $language->id]) }}"  class="span">
-                        <i class="fa fa-trash fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
+                        <i class="fa fa-trash fa-fw w3-margin-right w3-right w3-large w3-text-blue"></i></a>
 
                     <a data-toggle="collapse" href="#languages-{{ $language->id }}" role="button"
                         aria-expanded="false" aria-controls="languages-{{ $language->id }}" class="span">
-                        <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
-
+                        <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue"></i></a>
+                    </p>
 
 
                     <!-- Languages Editing Form -->
@@ -59,11 +53,10 @@
                         </div>
                     </form>
                     <!-- End Of language editing Form -->
-                </td>
-            </tr>
+            
         @endforeach
-    </tbody>
-</table>
+    
+</div>
 <!-- End Of Language Listing and Updating -->
 
 

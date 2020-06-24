@@ -8,25 +8,23 @@
 <div class="w3-container">
     <p id="volunteer-edit-alert" class="alert alert-success" style="display:none"></p>
 
-    <table class="table" id="volunteer-list">
+    <div id="volunteer-list">
 
-        <tbody>
+    
             @foreach($volunteers as $volunteer)
-                <tr>
-                    <td>
-                        <p class="text-primary">
-                            {{ $volunteer->job_title }}/{{ $volunteer->organization }}/{{ $volunteer->location }}
-                        </p>
-                    </td>
-
-                    <td>
+               
+                        <p class="text-primary span">
+                            <span data-toggle="collapse" href="#volunteer-{{ $volunteer->id }}" class="span" >
+                            {{ $volunteer->job_title }} at {{ $volunteer->organization }}, {{ $volunteer->location }}
+                            </span>
+           
                         <a onclick="return confirm('Are you sure?')" href="{{ route('destroyVolunteer', ['id' => $volunteer->id]) }}"  class="span">
-                            <i class="fa fa-trash fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
+                            <i class="fa fa-trash fa-fw w3-margin-right w3-right w3-large w3-text-blue"></i></a>
 
                         <a data-toggle="collapse" href="#volunteer-{{ $volunteer->id }}" role="button"
                             aria-expanded="false" aria-controls="volunteer-{{ $volunteer->id }}" class="span">
-                            <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
-
+                            <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue"></i></a>
+                        </p>
 
 
                         <!-- Volunteer Editing Form -->
@@ -74,18 +72,17 @@
 
                                 <div class="form-group">
                                     <button type="button" data-id={{ $volunteer->id }}
-                                        class="btn btn-primary updateVolunteer">Save</button>
+                                        class="btn btn-primary updateVolunteer">Update</button>
                                 </div>
                                 <hr><br>
 
                             </div>
                         </form>
                         <!-- End Of Volunteer editing Form -->
-                    </td>
-                </tr>
+
             @endforeach
-        </tbody>
-    </table>
+ 
+    </div>
 
 
 

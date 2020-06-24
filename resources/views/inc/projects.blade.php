@@ -10,25 +10,24 @@
 
     <p id="project-edit-alert" class="alert alert-success" style="display:none"></p>
 
-    <table class="table" id="project-list">
+    <div id="project-list">
 
-        <tbody>
+  
             @foreach($projects as $project)
-                <tr>
-                    <td>
-                        <p class="text-primary">
+            
+                        <p class="text-primary span">
+                            <span data-toggle="collapse" href="#project-{{ $project->id }}" class="span">
                             {{ $project->name }}
-                        </p>
-                    </td>
-
-                    <td>
+                            </span>
+                    
                         <a onclick="return confirm('Are you sure?')" href="{{ route('destroyProject', ['id' => $project->id]) }}"  class="span">
-                            <i class="fa fa-trash fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
+                            <i class="fa fa-trash fa-fw w3-margin-right w3-right w3-large w3-text-blue"></i></a>
                             
 
                             <a data-toggle="collapse" href="#project-{{ $project->id }}" role="button"
                                 aria-expanded="false" aria-controls="project-{{ $project->id }}" class="span">
-                                <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>     
+                                <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue"></i></a>
+                        </p>     
 
                         <!-- project Editing Form -->
                         <form method="POST"
@@ -59,18 +58,16 @@
 
                                 <div class="form-group">
                                     <button type="button" data-id={{ $project->id }}
-                                        class="btn btn-primary updateProject">Save</button>
+                                        class="btn btn-primary updateProject">Update</button>
                                 </div>
                                 <hr><br>
 
                             </div>
                         </form>
                         <!-- End Of project editing Form -->
-                    </td>
-                </tr>
+
             @endforeach
-        </tbody>
-    </table>
+    </div>
 
     
     <p>

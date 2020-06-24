@@ -1,32 +1,25 @@
-<h2 class="w3-text-grey w3-padding-18 w3-center"><i
+<h2 class="w3-text-grey w3-padding-18"><i
         class="fa fa-suitcase fa-fw w3-margin-right w3-margin-top w3-xxlarge w3-text-blue"></i>Work
     Experience</h2>
-<p class="w3-text-grey w3-padding-18 ml-3"><i
+<p class="w3-text-grey ml-3"><i
         class="fa fa-suitcase fa-fw w3-margin-right w3-margin-top w3-text-blue"></i>Current Employment
 </p>
 <div class="w3-container">
 
-    <p id="current-job-edit-alert" class="alert alert-success" style="display:none"></p>
+    <span id="current-job-edit-alert" class="alert alert-success" style="display:none"></span>
 
-    <table class="table" id="current-job-list">
+    <div id="current-job-list">
 
-        <tbody>
             @foreach($current_jobs as $current_job)
-                <tr>
-                    <td>
-                        <p class="text-primary">
-                            {{ $current_job->job_title }}/{{ $current_job->employer }}/{{ $current_job->location }}
-                        </p>
-                    </td>
-
-                    <td>
+                        <p data-toggle="collapse" href="#current_job-{{ $current_job->id }}"  class="text-primary span">
+                            {{ $current_job->job_title }} at {{ $current_job->employer }}, {{ $current_job->location }}
                         <a onclick="return confirm('Are you sure?')" href="{{ route('destroyCurrentJob', ['id' => $current_job->id]) }}"  class="span">
-                            <i class="fa fa-trash fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
+                            <i class="fa fa-trash fa-fw w3-margin-right w3-right w3-large w3-text-blue"></i></a>
 
                         <a data-toggle="collapse" href="#current_job-{{ $current_job->id }}" role="button"
                             aria-expanded="false" aria-controls="current_job-{{ $current_job->id }}" class="span">
-                            <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
-
+                            <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue"></i></a>
+                        </p>
 
 
                         <!-- Current Job Editing Form -->
@@ -67,18 +60,16 @@
                                 </div>
                                 <div class="form-group">
                                     <button type="button" data-id={{ $current_job->id }}
-                                        class="btn btn-primary updateCurrentJob">Save</button>
+                                        class="btn btn-primary updateCurrentJob">Update</button>
                                 </div>
                                 <hr><br>
 
                             </div>
                         </form>
                         <!-- End Of Current Job editing Form -->
-                    </td>
-                </tr>
+            
             @endforeach
-        </tbody>
-    </table>
+    </div>
 
 
     @if( $currentJobRowCount < 1)
@@ -129,7 +120,7 @@
         </form>
 
     @endif
-</div>
+</div><hr>
 
 
 {{-- Former employments Editing --}}
@@ -140,25 +131,20 @@
 
     <p id="former-job-edit-alert" class="alert alert-success" style="display:none"></p>
 
-    <table class="table" id="former-job-list">
+    <div id="former-job-list">
 
-        <tbody>
             @foreach($former_jobs as $former_job)
-                <tr>
-                    <td>
-                        <p class="text-primary">
-                            {{ $former_job->job_title }}/{{ $former_job->employer }}/{{ $former_job->location }}
-                        </p>
-                    </td>
 
-                    <td>
+                        <p class="text-primary">
+                         <span data-toggle="collapse" href="#former_job-{{ $current_job->id }}" class="span" >  {{ $former_job->job_title }} at {{ $former_job->employer }}, {{ $former_job->location }} </span>
+                        
                         <a onclick="return confirm('Are you sure?')" href="{{ route('destroyFormerJob', ['id' => $former_job->id]) }}"  class="span">
-                            <i class="fa fa-trash fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
+                            <i class="fa fa-trash fa-fw w3-margin-right w3-right w3-large w3-text-blue"></i></a>
 
                         <a data-toggle="collapse" href="#former_job-{{ $former_job->id }}" role="button"
                             aria-expanded="false" aria-controls="former_job-{{ $former_job->id }}" class="span">
-                            <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
-
+                            <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue"></i></a>
+                        </p>
 
 
                         <!-- former Job Editing Form -->
@@ -207,25 +193,24 @@
 
                                 <div class="form-group">
                                     <button type="button" data-id={{ $former_job->id }}
-                                        class="btn btn-primary updateFormerJobs">Save</button>
+                                        class="btn btn-primary updateFormerJobs">Update</button>
                                 </div>
                                 <hr><br>
 
                             </div>
                         </form>
                         <!-- End Of former Job editing Form -->
-                    </td>
-                </tr>
+
             @endforeach
-        </tbody>
-    </table>
+
+    </div>
 
 
     <!-- Former Jobs Addition-->
     <p>
         <span data-toggle="collapse" href="#former_employment" role="button" aria-expanded="false"
             aria-controls="former_employment" class="span">
-            Former Employment Positions
+            Add Former Employment Positions
             <i class="fa fa-plus-circle fa-fw w3-margin-right w3-right w3-xlarge w3-text-blue"></i>
         </span>
     </p>

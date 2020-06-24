@@ -22,6 +22,9 @@
 
                     <div class="content-section">
                         <div class="pl-2 pr-2">
+                            <p>
+                            <img src="/storage/profile_pics/{{$user->profile_pics}}" alt="Image" height="200">
+                            </p>
                             {!! Form::open(['action' => ['ProfileController@update', $user], 'method' => 'post', 'enctype'=>'multipart/form-data']) !!}
                             <p>
                                 {{ Form::label('name', 'Name', ['class' =>  'w3-text-blue', ]) }}

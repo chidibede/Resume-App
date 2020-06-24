@@ -1,31 +1,30 @@
-<h2 class="w3-text-grey w3-padding-15 w3-center"><i
+<h2 class="w3-text-grey w3-padding-15"><i
         class="fa fa-certificate fa-fw w3-margin-right w3-margin-top w3-xxlarge w3-text-blue"></i>Education
 </h2>
 
 <p class="w3-text-grey w3-padding-18 ml-4"><i
-    class="fa fa-suitcase fa-fw w3-margin-right w3-margin-top w3-text-blue"></i>Schools
+    class="fa fa-suitcase fa-fw w3-margin-right w3-margin-top w3-text-blue"></i>Schools and Certifications
 </p>
 
+<div class="w3-container">
 <p id="education-edit-alert" class="alert alert-success" style="display:none"></p>
-    <table class="table" id="education-list">
+    <div id="education-list">
 
-        <tbody>
+       
             @foreach($educations as $education)
-                <tr>
-                    <td>
-                        <p class="text-primary">
+                
+                        <p class="text-primary span">
+                            <span data-toggle="collapse" href="#education-{{ $education->id }}" class="span">
                             {{ $education->school }}/{{ $education->certificate }}/{{ $education->location }}
-                        </p>
-                    </td>
-
-                    <td>
+                            </span>
+                   
                         <a onclick="return confirm('Are you sure?')" href="{{ route('destroyEducation', ['id' => $education->id]) }}"  class="span">
-                            <i class="fa fa-trash fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
+                            <i class="fa fa-trash fa-fw w3-margin-right w3-right w3-large w3-text-blue"></i></a>
                             
                         <a data-toggle="collapse" href="#education-{{ $education->id }}" role="button"
                             aria-expanded="false" aria-controls="education-{{ $education->id }}" class="span">
-                            <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue mt-3"></i></a>
-
+                            <i class="fa fa-pencil fa-fw w3-margin-right w3-right w3-large w3-text-blue "></i></a>
+                        </p>
 
 
                         <!-- former Job Editing Form -->
@@ -69,22 +68,17 @@
 
                                 <div class="form-group">
                                     <button type="button" data-id={{ $education->id }}
-                                        class="btn btn-primary updateEducation">Save</button>
+                                        class="btn btn-primary updateEducation">Update</button>
                                 </div>
                                 <hr><br>
 
                             </div>
                         </form>
                         <!-- End Of former Job editing Form -->
-                    </td>
-                </tr>
+                
             @endforeach
-        </tbody>
-    </table>
-
-
-
-<div class="w3-container">
+       
+    </div>
     
     <p>
         <span data-toggle="collapse" href="#education" role="button" aria-expanded="false" aria-controls="education"
