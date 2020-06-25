@@ -62,8 +62,8 @@ class GenerateCvController extends Controller
     public function updateLocation(Request $request) {
 
         $user = auth()->user();
-        $user->nationality = $request->input('nationality');
-        $user->location = $request->input('location');
+        $user->nationality = ucfirst($request->input('nationality'));
+        $user->location = ucfirst($request->input('location'));
         $user->save();
 
         return response()->json(['success'=>'Location updated','data'=> [$request->location, $request->nationality]]);
@@ -92,7 +92,7 @@ class GenerateCvController extends Controller
     public function createSkills(Request $request) {
 
         $skill = new Skill();
-        $skill->skill_name = $request->get('skill_name');
+        $skill->skill_name = ucfirst($request->get('skill_name'));
         $skill->user_id = auth()->user()->id;
         $skill_level = $request->get('level');
         $skill_level = str_replace('%', '', $skill_level);
@@ -106,7 +106,7 @@ class GenerateCvController extends Controller
     public function updateSkills(Request $request, $id) {
 
         $skill = Skill::find($id);
-        $skill->skill_name = $request->get('skill_name');
+        $skill->skill_name = ucfirst($request->get('skill_name'));
         $skill_level = $request->get('level');
         $skill_level = str_replace('%', '', $skill_level);
         $skill->level = $skill_level;
@@ -119,7 +119,7 @@ class GenerateCvController extends Controller
     public function createLanguages(Request $request) {
 
         $language = new Language();
-        $language->language_name = $request->get('language_name');
+        $language->language_name = ucfirst($request->get('language_name'));
         $language->user_id = auth()->user()->id;
         $language_level = $request->get('level');
         $language_level = str_replace('%', '', $language_level);
@@ -133,7 +133,7 @@ class GenerateCvController extends Controller
         public function updateLanguages(Request $request, $id) {
 
             $language = Language::find($id);
-            $language->language_name = $request->get('language_name');
+            $language->language_name = ucfirst($request->get('language_name'));
             $language_level = $request->get('level');
             $language_level = str_replace('%', '', $language_level);
             $language->level = $language_level;
@@ -148,12 +148,12 @@ class GenerateCvController extends Controller
         public function createCurrentJob(Request $request) {
 
             $current_job = new Currentjob();
-            $current_job->job_title = $request->get('job_title');
+            $current_job->job_title = ucfirst($request->get('job_title'));
             $current_job->user_id = auth()->user()->id;
-            $current_job->employer = $request->get('employer');
-            $current_job->location = $request->get('location');
+            $current_job->employer = ucfirst($request->get('employer'));
+            $current_job->location = ucfirst($request->get('location'));
             $current_job->start_date = $request->get('start_date');
-            $current_job->job_description = $request->get('job_description');
+            $current_job->job_description = ucfirst($request->get('job_description'));
             $current_job->save();
 
             return response()->json(['success'=> 'Current Job updated']);
@@ -162,11 +162,11 @@ class GenerateCvController extends Controller
         public function updateCurrentJob(Request $request, $id) {
 
             $current_job = Currentjob::find($id);
-            $current_job->job_title = $request->get('job_title');
-            $current_job->employer = $request->get('employer');
-            $current_job->location = $request->get('location');
+            $current_job->job_title = ucfirst($request->get('job_title'));
+            $current_job->employer = ucfirst($request->get('employer'));
+            $current_job->location = ucfirst($request->get('location'));
             $current_job->start_date = $request->get('start_date');
-            $current_job->job_description = $request->get('job_description');
+            $current_job->job_description = ucfirst($request->get('job_description'));
             $current_job->save();
 
             return response()->json(['success'=> 'Current Job updated']);
@@ -177,13 +177,13 @@ class GenerateCvController extends Controller
         public function createFormerJobs(Request $request) {
 
             $former_job = new Work();
-            $former_job->job_title = $request->get('job_title');
+            $former_job->job_title = ucfirst($request->get('job_title'));
             $former_job->user_id = auth()->user()->id;
-            $former_job->employer = $request->get('employer');
-            $former_job->location = $request->get('location');
+            $former_job->employer = ucfirst($request->get('employer'));
+            $former_job->location = ucfirst($request->get('location'));
             $former_job->start_date = $request->get('start_date');
             $former_job->end_date = $request->get('end_date');
-            $former_job->job_description = $request->get('job_description');
+            $former_job->job_description = ucfirst($request->get('job_description'));
             $former_job->save();
 
             return response()->json(['success'=> 'Former Job updated']);
@@ -192,11 +192,11 @@ class GenerateCvController extends Controller
         public function updateFormerJobs(Request $request, $id) {
 
             $former_job = Work::find($id);
-            $former_job->job_title = $request->get('job_title');
-            $former_job->employer = $request->get('employer');
-            $former_job->location = $request->get('location');
+            $former_job->job_title = ucfirst($request->get('job_title'));
+            $former_job->employer = ucfirst($request->get('employer'));
+            $former_job->location = ucfirst($request->get('location'));
             $former_job->start_date = $request->get('start_date');
-            $former_job->job_description = $request->get('job_description');
+            $former_job->job_description = ucfirst($request->get('job_description'));
             $former_job->save();
 
             return response()->json(['success'=> 'Former Job updated']);
@@ -208,12 +208,12 @@ class GenerateCvController extends Controller
        public function createEducation(Request $request) {
 
         $education = new Education();
-        $education->school = $request->get('school');
+        $education->school = ucfirst($request->get('school'));
         $education->user_id = auth()->user()->id;
-        $education->location = $request->get('location');
+        $education->location = ucfirst($request->get('location'));
         $education->start_date = $request->get('start_date');
         $education->end_date = $request->get('end_date');
-        $education->certificate = $request->get('certificate');
+        $education->certificate = ucfirst($request->get('certificate'));
         $education->save();
 
         return response()->json(['success'=> 'Education Job updated']);
@@ -222,12 +222,12 @@ class GenerateCvController extends Controller
     public function updateEducation(Request $request, $id) {
 
         $education = Education::find($id);
-        $education->school = $request->get('school');
+        $education->school = ucfirst($request->get('school'));
         $education->user_id = auth()->user()->id;
-        $education->location = $request->get('location');
+        $education->location = ucfirst($request->get('location'));
         $education->start_date = $request->get('start_date');
         $education->end_date = $request->get('end_date');
-        $education->certificate = $request->get('certificate');
+        $education->certificate = ucfirst($request->get('certificate'));
         $education->save();
 
         return response()->json(['success'=> 'Education Job updated']);
@@ -239,13 +239,13 @@ class GenerateCvController extends Controller
     public function createVolunteer(Request $request) {
 
         $volunteer = new Volunteer();
-        $volunteer->job_title = $request->get('job_title');
+        $volunteer->job_title = ucfirst($request->get('job_title'));
         $volunteer->user_id = auth()->user()->id;
-        $volunteer->organization = $request->get('organization');
-        $volunteer->location = $request->get('location');
+        $volunteer->organization = ucfirst($request->get('organization'));
+        $volunteer->location = ucfirst($request->get('location'));
         $volunteer->start_date = $request->get('start_date');
         $volunteer->end_date = $request->get('end_date');
-        $volunteer->job_description = $request->get('job_description');
+        $volunteer->job_description = ucfirst($request->get('job_description'));
         $volunteer->save();
 
         return response()->json(['success'=> 'Volunteer Job updated']);
@@ -254,12 +254,12 @@ class GenerateCvController extends Controller
     public function updateVolunteers(Request $request, $id) {
 
         $volunteer = Volunteer::find($id);
-        $volunteer->job_title = $request->get('job_title');
-        $volunteer->organization = $request->get('organization');
-        $volunteer->location = $request->get('location');
+        $volunteer->job_title = ucfirst($request->get('job_title'));
+        $volunteer->organization = ucfirst($request->get('organization'));
+        $volunteer->location = ucfirst($request->get('location'));
         $volunteer->start_date = $request->get('start_date');
         $volunteer->end_date = $request->get('end_date');
-        $volunteer->job_description = $request->get('job_description');
+        $volunteer->job_description = ucfirst($request->get('job_description'));
         $volunteer->save();
 
         return response()->json(['success'=> 'Volunteer Job updated']);
@@ -273,8 +273,8 @@ class GenerateCvController extends Controller
         $project = new Project();
         $project->user_id = auth()->user()->id;
         $project->link = $request->get('link');
-        $project->name = $request->get('name');
-        $project->description = $request->get('description');
+        $project->name = ucfirst($request->get('name'));
+        $project->description = ucfirst($request->get('description'));
         $project->save();
 
         return response()->json(['success'=> 'Projects updated']);
@@ -284,8 +284,8 @@ class GenerateCvController extends Controller
 
         $project = Project::find($id);
         $project->link = $request->get('link');
-        $project->name = $request->get('name');
-        $project->description = $request->get('description');
+        $project->name = ucfirst($request->get('name'));
+        $project->description = ucfirst($request->get('description'));
         $project->save();
 
         return response()->json(['success'=> 'Projects updated']);

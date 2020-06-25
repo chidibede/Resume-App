@@ -60,8 +60,8 @@ class ProfileController extends Controller
       
         // store the form values in a database
         $user = auth()->user();
-        $user->name = $request->input('name');
-        $user->username = $request->input('username');
+        $user->name = ucfirst($request->input('name'));
+        $user->username = ucfirst($request->input('username'));
         $user->email = $request->input('email');
         $user->website = $request->input('website');
         $user->linkedin = $request->input('linkedin');
