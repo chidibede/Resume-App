@@ -55,7 +55,7 @@
 
                                 <div class="form-group">
                                     <span class="w3-medium w3-text-gray">Job Description</span>
-                                    <textarea name="job_description" class="form-control" rows="4"
+                                    <textarea class="description" name="job_description" class="form-control" rows="4"
                                         id="comment{{ $volunteer->id }}">{{ $volunteer->job_description }}</textarea>
                                 </div>
 
@@ -146,7 +146,7 @@
             </div>
             <div class="form-group">
                 <span class="w3-medium w3-text-gray">Job Description</span>
-                <textarea class="form-control" rows="4" id="job_description" name='job_description'></textarea>
+                <textarea class="description" rows="4" id="job_description" name='job_description'></textarea>
             </div>
             <div class="form-group" style="width:60%;">
                 <span class="w3-medium w3-text-gray">Start Date</span>

@@ -50,8 +50,7 @@
 
                                 <div class="form-group">
                                     <span class="w3-medium w3-text-gray">Job Description</span>
-                                    <textarea name="job_description" class="form-control" rows="4"
-                                        id="comment{{ $current_job->id }}">{{ $current_job->job_description }}</textarea>
+                                    <textarea class="description" rows="4" name="job_description" id="comment{{ $current_job->id }}">{{ $current_job->job_description }}</textarea>
                                 </div>
 
                                 <div class="form-group" style="width:60%;">
@@ -126,7 +125,7 @@
 
                 <div class="form-group">
                     <span class="w3-medium w3-text-gray ">Job Description</span>
-                    <textarea name="job_description" class="form-control" rows="4" id="comment"></textarea>
+                    <textarea class="description" name="job_description" class="form-control" rows="4" id="comment"></textarea>
                 </div>
                 <div class="form-group" style="width:60%;">
                     <span class="w3-medium w3-text-gray required">Start Date</span>
@@ -207,6 +206,7 @@
 
                                 <div class="form-group">
                                     <span class="w3-medium w3-text-gray">Job Description</span>
+                                    <textarea class="description" rows="4" name="job_description" id="comment{{ $former_job->id }}">{{ $former_job->job_description }}</textarea>
                                     <textarea name="job_description" class="form-control" rows="4"
                                         id="comment{{ $former_job->id }}">{{ $former_job->job_description }}</textarea>
                                 </div>
@@ -305,7 +305,8 @@
 
             <div class="form-group">
                 <span class="w3-medium w3-text-gray">Job Description</span>
-                <textarea name="job_description" class="form-control" rows="4" id="comment"></textarea>
+                <textarea class="description" rows="4" name="job_description" id="comment"></textarea>
+                {{-- <textarea  class="form-control" rows="4" id="comment"></textarea> --}}
             </div>
             <div class="form-group" style="width:60%;">
                 <span class="w3-medium w3-text-gray required">Start Date</span>

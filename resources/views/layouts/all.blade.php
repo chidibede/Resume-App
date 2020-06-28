@@ -141,7 +141,9 @@ p {
     color: red;
     font-weight: bolder;
   }
-
+  table.mceLayout, textarea.tinyMCE {
+    width: 100% !important;
+}
 
 input:focus {
     outline:none;
@@ -151,6 +153,10 @@ input:focus {
     width:98%; 
      margin: 0 auto;
   }
+
+  table.mceLayout, textarea.richEditor {
+       width: 600px !important;
+    }
 }
 </style>
 </head>
@@ -253,6 +259,15 @@ input:focus {
 <footer class="w3-white w3-text-white w3-padding">
   This is the footer
 </footer>
+
+
+<script src="http://cdn.tinymce.com/4.4/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+  selector: 'textarea',
+  plugins: 'lists advlist'
+});
+</script>
 <script>
 // Used to toggle the menu on small screens when clicking on the menu button
 function myFunction() {
