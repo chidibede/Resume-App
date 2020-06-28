@@ -207,8 +207,8 @@
                                 <div class="form-group">
                                     <span class="w3-medium w3-text-gray">Job Description</span>
                                     <textarea class="description" rows="4" name="job_description" id="comment{{ $former_job->id }}">{{ $former_job->job_description }}</textarea>
-                                    <textarea name="job_description" class="form-control" rows="4"
-                                        id="comment{{ $former_job->id }}">{{ $former_job->job_description }}</textarea>
+                                    {{-- <textarea name="job_description" class="form-control" rows="4"
+                                        id="comment{{ $former_job->id }}">{{ $former_job->job_description }}</textarea> --}}
                                 </div>
 
 
