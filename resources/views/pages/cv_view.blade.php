@@ -75,7 +75,7 @@
           <div class="w3-container">
             <h4 style="font-weight: 300;">{{ $currentjob->job_title}} at {{ $currentjob->employer}}, {{ $currentjob->location}}.</p>
             </h4>
-            <h5 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $currentjob->start_date}} - <span class="w3-tag w3-blue" style="padding: 1%;">{{ $currentjob->end_date}}</span></h5></p>
+            <h5 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ $currentjob->start_month}}, {{ $currentjob->start_year }} - <span class="w3-tag w3-blue" style="padding: 1%;">{{ $currentjob->end_date}}</span></h5></p>
             <p>{{ $currentjob->job_description}}</p>
             <hr>
           </div>
@@ -89,7 +89,7 @@
             
             <h4 style="font-weight: 300;">{{ $work->job_title}} at {{ $work->employer}}, {{ $work->location}}.</h4>
             <p>
-            <h5 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i><b>From </b><span class="w3-text-grey"> {{ $work->start_date}} </span><b>To</b> <span class=" w3-text-grey">{{ $work->end_date}}</span></h5></p>
+            <h5 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i><b>From </b><span class="w3-text-grey"> {{ $work->start_month}}, {{ $work->start_year }} </span><b>To</b> <span class=" w3-text-grey">{{ $work->end_month}}, {{ $work->end_year }}</span></h5></p>
             <p>{{ $work->job_description}}</p>
             <hr>
           </div>    
@@ -105,7 +105,7 @@
         <div class="w3-container">
           <h4 style="font-weight: 300;">{{ $education->school}}</h4>
           <p>
-        <h5 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i><b>From</b><span class="w3-text-grey"> {{ $education->start_date }} </span><b>To</b> <span class=" w3-text-grey">  {{$education->end_date}}</span></h5></p>
+          <h5 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i><b>From</b><span class="w3-text-grey"> {{ $education->start_month}}, {{ $education->start_year }} </span><b>To</b> <span class=" w3-text-grey">  {{$education->end_month}}, {{$education->end_year}}</span></h5></p>
           <p>{{ $education->certificate}}</p>
           <hr>
         </div>
@@ -122,7 +122,7 @@
       <div class="w3-container">
         <h4 style="font-weight: 300;">{{ $volunteer->job_title}} at {{ $volunteer->organization}}, {{ $volunteer->location}}</h4>
         <p>
-        <h5 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i><b>From</b><span class="w3-text-grey"> {{ $volunteer->start_date}} </span><b>To</b> <span class="w3-text-grey">{{ $volunteer->end_date}}</span></h5>
+        <h5 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i><b>From</b><span class="w3-text-grey"> {{ $volunteer->start_month}}, {{ $volunteer->start_year }} </span><b>To</b> <span class="w3-text-grey">{{ $volunteer->end_month}}, {{ $volunteer->end_year }}</span></h5>
         </p>
         <p>{{ $volunteer->job_description}}</p>
         <hr>

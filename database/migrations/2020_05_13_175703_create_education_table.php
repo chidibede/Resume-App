@@ -18,8 +18,10 @@ class CreateEducationTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('school')->nullable();
             $table->string('location')->nullable();
-            $table->string('start_date')->nullable();
-            $table->string('end_date')->nullable();
+            $table->string('start_year')->nullable();
+            $table->string('start_month')->nullable();
+            $table->string('end_year')->nullable();
+            $table->string('end_month')->nullable();
             $table->string('certificate')->nullable();
             $table->timestamps();
 

@@ -53,17 +53,51 @@
                                     <input name="certificate" class="form-control"
                                         id="certificate{{ $education->id }}" value="{{$education->certificate }}" >
                                 </div>
-                                <div class="form-group" style="width:50%;">
+
+                                <div class="form-group" style="width:60%;">
+                                    <span class="w3-medium w3-text-gray required">Start Date</span>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input value="{{ $education->start_year }}" list="year" 
+                                            class="form-control w3-margin-bottom" id="start_year{{ $education->id }}" name='start_year' required>
+                                            @include('inc.year') 
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input id="start_month{{ $education->id }}" list="month" 
+                                            class="form-control w3-margin-bottom" name='start_month' value="{{ $education->start_month }}" required>
+                                            @include('inc.month')
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" style="width:60%;">
+                                    <span class="w3-medium w3-text-gray required">End Date</span>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input value="{{ $education->end_year }}" list="year" 
+                                            class="form-control w3-margin-bottom" id="end_year{{ $education->id }}" name='end_year' required>
+                                            @include('inc.year') 
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input id="end_month{{ $education->id }}" list="month" 
+                                            class="form-control w3-margin-bottom" name='end_month' value="{{ $education->end_month }}" required>
+                                            @include('inc.month')
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                {{-- <div class="form-group" style="width:50%;">
                                     <span class="w3-medium w3-text-gray">Start Date</span>
                                     <input type="date" name="start_date" id="start_date{{ $education->id }}"
                                         name="date" class="form-control" value="{{ $education->start_date }}">
-                                </div>
+                                </div> --}}
 
-                                <div class="form-group" style="width:50%;">
+                                {{-- <div class="form-group" style="width:50%;">
                                     <span class="w3-medium w3-text-gray">End Date</span>
                                     <input type="date" name="end_date" id="end_date{{ $education->id }}" name="date"
                                         class="form-control" value="{{ $education->end_date }}">
-                                </div>
+                                </div> --}}
 
 
                                 <div class="form-group">
@@ -103,13 +137,35 @@
                 <input type="text" name="location" id="location" placeholder="School Location" class="form-control"
                     required>
             </div>
-            <div class="form-group" style="width:50%;">
+            <div class="form-group" style="width:60%;">
                 <span class="w3-medium w3-text-gray">Start Date</span>
-                <input type="date" name="start_date" id="start_date" name="date" class="form-control" required>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input id="year-input" list="year" placeholder="Enter Start Year"
+                        class="form-control w3-margin-bottom" name='start_year' required>
+                        @include('inc.year') 
+                    </div>
+                    <div class="col-md-6">
+                        <input id="month-input" list="month" placeholder="Enter Start Month"
+                        class="form-control w3-margin-bottom" name='start_month' required>
+                        @include('inc.month')
+                    </div>
+                </div>
             </div>
-            <div class="form-group" style="width:50%;">
+            <div class="form-group" style="width:60%;">
                 <span class="w3-medium w3-text-gray">End Date</span>
-                <input type="date" name="end_date" id="end_date" name="date" class="form-control" required>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input id="year-input" list="year" placeholder="Enter End Year"
+                        class="form-control w3-margin-bottom" name='end_year' required>
+                        @include('inc.year') 
+                    </div>
+                    <div class="col-md-6">
+                        <input id="month-input" list="month" placeholder="Enter End Month"
+                        class="form-control w3-margin-bottom" name='end_month' required>
+                        @include('inc.month')
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary" id="education-btn">Save</button>

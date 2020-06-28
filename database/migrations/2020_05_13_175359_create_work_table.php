@@ -19,8 +19,10 @@ class CreateWorkTable extends Migration
             $table->string('job_title')->nullable();
             $table->string('employer')->nullable();
             $table->string('location')->nullable();
-            $table->string('start_date')->nullable();
-            $table->string('end_date')->nullable();
+            $table->string('start_year')->nullable();
+            $table->string('start_month')->nullable();
+            $table->string('end_year')->nullable();
+            $table->string('end_month')->nullable();
             $table->longText('job_description')->nullable();
             $table->timestamps();
 

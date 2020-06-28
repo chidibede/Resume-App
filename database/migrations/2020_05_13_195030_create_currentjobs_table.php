@@ -19,7 +19,8 @@ class CreateCurrentjobsTable extends Migration
             $table->string('job_title')->nullable();
             $table->string('employer')->nullable();
             $table->string('location')->nullable();
-            $table->string('start_date')->nullable();
+            $table->string('start_year')->nullable();
+            $table->string('start_month')->nullable();
             $table->string('end_date')->default('Present');
             $table->text('job_description')->nullable();
             $table->timestamps();

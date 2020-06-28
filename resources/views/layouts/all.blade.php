@@ -136,6 +136,13 @@ p {
     margin-right: 10px;
 }
 
+  .required:after {
+    content:" *";
+    color: red;
+    font-weight: bolder;
+  }
+
+
 input:focus {
     outline:none;
 }

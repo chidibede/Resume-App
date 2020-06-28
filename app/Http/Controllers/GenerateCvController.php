@@ -152,7 +152,8 @@ class GenerateCvController extends Controller
             $current_job->user_id = auth()->user()->id;
             $current_job->employer = ucfirst($request->get('employer'));
             $current_job->location = ucfirst($request->get('location'));
-            $current_job->start_date = $request->get('start_date');
+            $current_job->start_year = $request->get('start_year');
+            $current_job->start_month = $request->get('start_month');
             $current_job->job_description = ucfirst($request->get('job_description'));
             $current_job->save();
 
@@ -160,12 +161,19 @@ class GenerateCvController extends Controller
         }
 
         public function updateCurrentJob(Request $request, $id) {
+            
+            // validate the form
+         $this->validate($request, [
+            'start_year' => 'required',
+            'start_month' => 'required',
+        ]);
 
             $current_job = Currentjob::find($id);
             $current_job->job_title = ucfirst($request->get('job_title'));
             $current_job->employer = ucfirst($request->get('employer'));
             $current_job->location = ucfirst($request->get('location'));
-            $current_job->start_date = $request->get('start_date');
+            $current_job->start_year = $request->get('start_year');
+            $current_job->start_month = $request->get('start_month');
             $current_job->job_description = ucfirst($request->get('job_description'));
             $current_job->save();
 
@@ -181,8 +189,10 @@ class GenerateCvController extends Controller
             $former_job->user_id = auth()->user()->id;
             $former_job->employer = ucfirst($request->get('employer'));
             $former_job->location = ucfirst($request->get('location'));
-            $former_job->start_date = $request->get('start_date');
-            $former_job->end_date = $request->get('end_date');
+            $former_job->start_year = $request->get('start_year');
+            $former_job->start_month = $request->get('start_month');
+            $former_job->end_year = $request->get('end_year');
+            $former_job->end_month = $request->get('end_month');
             $former_job->job_description = ucfirst($request->get('job_description'));
             $former_job->save();
 
@@ -191,11 +201,23 @@ class GenerateCvController extends Controller
 
         public function updateFormerJobs(Request $request, $id) {
 
+            // validate the form
+         $this->validate($request, [
+            'start_year' => 'required',
+            'start_month' => 'required',
+            'end_year' => 'required',
+            'end_month' => 'required',
+      
+        ]);
+
             $former_job = Work::find($id);
             $former_job->job_title = ucfirst($request->get('job_title'));
             $former_job->employer = ucfirst($request->get('employer'));
             $former_job->location = ucfirst($request->get('location'));
-            $former_job->start_date = $request->get('start_date');
+            $former_job->start_year = $request->get('start_year');
+            $former_job->start_month = $request->get('start_month');
+            $former_job->end_year = $request->get('end_year');
+            $former_job->end_month = $request->get('end_month');
             $former_job->job_description = ucfirst($request->get('job_description'));
             $former_job->save();
 
@@ -211,8 +233,10 @@ class GenerateCvController extends Controller
         $education->school = ucfirst($request->get('school'));
         $education->user_id = auth()->user()->id;
         $education->location = ucfirst($request->get('location'));
-        $education->start_date = $request->get('start_date');
-        $education->end_date = $request->get('end_date');
+        $education->start_year = $request->get('start_year');
+        $education->start_month = $request->get('start_month');
+        $education->end_year = $request->get('end_year');
+        $education->end_month = $request->get('end_month');
         $education->certificate = ucfirst($request->get('certificate'));
         $education->save();
 
@@ -221,12 +245,23 @@ class GenerateCvController extends Controller
 
     public function updateEducation(Request $request, $id) {
 
+        // validate the form
+        $this->validate($request, [
+            'start_year' => 'required',
+            'start_month' => 'required',
+            'end_year' => 'required',
+            'end_month' => 'required',
+      
+        ]);
+
         $education = Education::find($id);
         $education->school = ucfirst($request->get('school'));
         $education->user_id = auth()->user()->id;
         $education->location = ucfirst($request->get('location'));
-        $education->start_date = $request->get('start_date');
-        $education->end_date = $request->get('end_date');
+        $education->start_year = $request->get('start_year');
+        $education->start_month = $request->get('start_month');
+        $education->end_year = $request->get('end_year');
+        $education->end_month = $request->get('end_month');
         $education->certificate = ucfirst($request->get('certificate'));
         $education->save();
 
@@ -238,13 +273,16 @@ class GenerateCvController extends Controller
     // Volunteer Jobs Controller
     public function createVolunteer(Request $request) {
 
+
         $volunteer = new Volunteer();
         $volunteer->job_title = ucfirst($request->get('job_title'));
         $volunteer->user_id = auth()->user()->id;
         $volunteer->organization = ucfirst($request->get('organization'));
         $volunteer->location = ucfirst($request->get('location'));
-        $volunteer->start_date = $request->get('start_date');
-        $volunteer->end_date = $request->get('end_date');
+        $volunteer->start_year = $request->get('start_year');
+        $volunteer->start_month = $request->get('start_month');
+        $volunteer->end_year = $request->get('end_year');
+        $volunteer->end_month = $request->get('end_month');
         $volunteer->job_description = ucfirst($request->get('job_description'));
         $volunteer->save();
 
@@ -253,12 +291,23 @@ class GenerateCvController extends Controller
 
     public function updateVolunteers(Request $request, $id) {
 
+         // validate the form
+         $this->validate($request, [
+            'start_year' => 'required',
+            'start_month' => 'required',
+            'end_year' => 'required',
+            'end_month' => 'required',
+      
+        ]);
+
         $volunteer = Volunteer::find($id);
         $volunteer->job_title = ucfirst($request->get('job_title'));
         $volunteer->organization = ucfirst($request->get('organization'));
         $volunteer->location = ucfirst($request->get('location'));
-        $volunteer->start_date = $request->get('start_date');
-        $volunteer->end_date = $request->get('end_date');
+        $volunteer->start_year = $request->get('start_year');
+        $volunteer->start_month = $request->get('start_month');
+        $volunteer->end_year = $request->get('end_year');
+        $volunteer->end_month = $request->get('end_month');
         $volunteer->job_description = ucfirst($request->get('job_description'));
         $volunteer->save();
 
