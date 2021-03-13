@@ -187,7 +187,7 @@ input:focus {
        @endif
   @else
       <a href="/profile" class="w3-bar-item w3-button w3-padding-large w3-hover-light-gray">
-        <img src="/storage/profile_pics/{{$user->profile_pics}}" alt="Profile" width="80" height="80" style="border-radius: 40px;">
+        <img src="https://res.cloudinary.com/chidibede/image/upload/v1615639254/user_avatar.jpg" alt="Profile" width="80" height="80" style="border-radius: 40px;">
         <p>{{ Auth::user()->name }} </p>
       </a>
 
@@ -228,7 +228,7 @@ input:focus {
        @endif
   @else
     <a href="/profile" class="w3-bar-item w3-button w3-hover-light-gray" >
-          <img src="/storage/profile_pics/{{$user->profile_pics}}" alt="Profile" width="30" height="30" style="margin-left: 2%; border-radius: 15px;">
+          <img src="https://res.cloudinary.com/chidibede/image/upload/v1615639254/user_avatar.jpg" alt="Profile" width="30" height="30" style="margin-left: 2%; border-radius: 15px;">
         {{ Auth::user()->name }}
       </a>
 
@@ -261,13 +261,19 @@ input:focus {
 </footer>
 
 
-<script src="http://cdn.tinymce.com/4.4/tinymce.min.js"></script>
-<script>
+<!-- <script src="http://cdn.tinymce.com/4.4/tinymce.min.js"></script> -->
+<!-- <script>
     tinymce.init({
   selector: 'textarea',
   plugins: 'lists advlist'
 });
-</script>
+</script> -->
+<script src="https://cdn.tiny.cloud/1/g7z1aorm667laumha3v62xyu47lafq9vh9diyn472xgp7r6z/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+      selector: '#mytextarea'
+    });
+  </script>
 <script>
 // Used to toggle the menu on small screens when clicking on the menu button
 function myFunction() {

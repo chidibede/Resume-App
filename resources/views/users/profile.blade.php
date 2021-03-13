@@ -21,7 +21,7 @@
                 </div>
             @endif
         
-       <img src="/storage/profile_pics/{{$user->profile_pics}}" alt="Image" height="200">
+       <img src="https://res.cloudinary.com/chidibede/image/upload/v1615639254/user_avatar.jpg" alt="Image" height="200">
         
         <h3 class="w3-margin-left">{{ $user->name}}</h3>
         <p class="w3-margin-left">{{ $user->username}} </p>

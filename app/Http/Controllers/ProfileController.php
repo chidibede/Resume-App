@@ -55,7 +55,6 @@ class ProfileController extends Controller
             $fileExtension = $request->file('profile_pics')->getClientOriginalExtension();
             $fileNameToStore = $fileName."_".time().".".$fileExtension;
             $path = $request->file('profile_pics')->storeAs('public/profile_pics', $fileNameToStore);
-
         }
       
         // store the form values in a database
@@ -69,6 +68,8 @@ class ProfileController extends Controller
         $user->facebook = $request->input('facebook');
         if($request->hasFile('profile_pics')){
             $user->profile_pics = $fileNameToStore;
+        }else{
+            $user->profile_pics = "https://res.cloudinary.com/chidibede/image/upload/v1615639254/user_avatar.jpg";
         }
     
         // Save the Updated User Profile

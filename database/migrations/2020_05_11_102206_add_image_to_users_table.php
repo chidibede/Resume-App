@@ -15,7 +15,7 @@ class AddImageToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             // Add Profile picture column to users table
-            $table->string('profile_pics')->after('phone_number')->default('profile.png');
+            $table->string('profile_pics')->after('phone_number')->default("https://res.cloudinary.com/chidibede/image/upload/v1615639254/user_avatar.jpg");
         });
     }
 

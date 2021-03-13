@@ -1,6 +1,6 @@
 <div class="w3-white w3-text-grey w3-card-4">
     <div class="w3-display-container w3-padding-bottom" style="padding:10%;">
-        <img src="/storage/profile_pics/{{$user->profile_pics}}" height="400" style="width:100%" alt="Avatar">
+        <img src="https://res.cloudinary.com/chidibede/image/upload/v1615639254/user_avatar.jpg" height="400" style="width:100%" alt="Avatar">
         <div class="w3-display-bottomleft w3-container w3-text-black">
             <h3 style="background: #ddd;font-family:'Trebuchet MS', Helvetica, sans-serif;">{{ $user->name }}</h3>
         </div>
